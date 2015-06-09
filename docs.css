@@ -318,6 +318,9 @@ table {
   -webkit-box-orient: vertical;
   -moz-box-orient: vertical;
   box-orient: vertical;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  box-direction: normal;
   -webkit-flex-direction: column;
   -moz-flex-direction: column;
   flex-direction: column;
@@ -393,6 +396,9 @@ table {
   -webkit-box-orient: horizontal;
   -moz-box-orient: horizontal;
   box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  box-direction: normal;
   -webkit-flex-direction: row;
   -moz-flex-direction: row;
   flex-direction: row;
@@ -438,6 +444,9 @@ table {
     -webkit-box-orient: horizontal;
     -moz-box-orient: horizontal;
     box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    box-direction: normal;
     -webkit-flex-direction: row;
     -moz-flex-direction: row;
     flex-direction: row;
@@ -465,6 +474,9 @@ table {
     -webkit-box-orient: horizontal;
     -moz-box-orient: horizontal;
     box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    box-direction: normal;
     -webkit-flex-direction: row;
     -moz-flex-direction: row;
     flex-direction: row;
@@ -523,6 +535,9 @@ table {
     -webkit-box-orient: vertical;
     -moz-box-orient: vertical;
     box-orient: vertical;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    box-direction: normal;
     -webkit-flex-direction: column;
     -moz-flex-direction: column;
     flex-direction: column;
@@ -544,6 +559,9 @@ table {
     -webkit-box-orient: vertical;
     -moz-box-orient: vertical;
     box-orient: vertical;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    box-direction: normal;
     -webkit-flex-direction: column;
     -moz-flex-direction: column;
     flex-direction: column;
@@ -560,6 +578,9 @@ table {
     -webkit-box-orient: horizontal;
     -moz-box-orient: horizontal;
     box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    box-direction: normal;
     -webkit-flex-direction: row;
     -moz-flex-direction: row;
     flex-direction: row;
@@ -593,6 +614,9 @@ table {
     -webkit-box-orient: vertical;
     -moz-box-orient: vertical;
     box-orient: vertical;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    box-direction: normal;
     -webkit-flex-direction: column;
     -moz-flex-direction: column;
     flex-direction: column;
@@ -603,6 +627,9 @@ table {
     -webkit-box-orient: vertical;
     -moz-box-orient: vertical;
     box-orient: vertical;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    box-direction: normal;
     -webkit-flex-direction: column;
     -moz-flex-direction: column;
     flex-direction: column;
