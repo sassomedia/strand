@@ -94,40 +94,22 @@
 				</div>
 			</footer>			<article class="layout-article">
 				<div class="docs-content">
-					<h1>mm-radio</h1>
-					<p>A fully-styled radio button.</p>
+					<h1>mm-progress-bar</h1>
+					<p>A fully-styled progress bar.</p>
 					<hr/>
 					<section>
 						<h3>Example HTML Editor</h3>
 						<div class="editor-wrapper">
-							<div id="editor">&lt;mm-radio group=&quot;aces&quot; unresolved&gt;
-	&lt;label&gt;My Label 1&lt;/label&gt;
-&lt;/mm-radio&gt;
-&lt;mm-radio group=&quot;aces&quot; unresolved&gt;
-	&lt;label&gt;My Label 2&lt;/label&gt;
-&lt;/mm-radio&gt;
-&lt;mm-radio group=&quot;aces&quot; unresolved&gt;
-	&lt;label&gt;My Label 3&lt;/label&gt;
-&lt;/mm-radio&gt;
-&lt;mm-radio group=&quot;aces&quot; checked=&quot;true&quot; disabled=&quot;true&quot; unresolved&gt;
-	&lt;label&gt;My Label 4&lt;/label&gt;
-&lt;/mm-radio&gt;</div>
+							<div id="editor">&lt;mm-progress-bar percent-complete=&quot;100&quot;&gt;&lt;/mm-progress-bar&gt;
+&lt;mm-progress-bar fill-color=&quot;hotpink&quot; percent-complete=&quot;25&quot;&gt;&lt;/mm-progress-bar&gt;
+&lt;mm-progress-bar indeterminate height=&quot;8&quot; width=&quot;62&quot; percent-complete=&quot;50&quot;&gt;&lt;/mm-progress-bar&gt;</div>
 						</div>
 					</section>
 					<section>
 						<h3>Example Output</h3>
-						<div class="content-box example" id="example-mm-radio"><mm-radio group="aces" unresolved>
-	<label>My Label 1</label>
-</mm-radio>
-<mm-radio group="aces" unresolved>
-	<label>My Label 2</label>
-</mm-radio>
-<mm-radio group="aces" unresolved>
-	<label>My Label 3</label>
-</mm-radio>
-<mm-radio group="aces" checked="true" disabled="true" unresolved>
-	<label>My Label 4</label>
-</mm-radio></div>
+						<div class="content-box example" id="example-mm-progress-bar"><mm-progress-bar percent-complete="100"></mm-progress-bar>
+<mm-progress-bar fill-color="hotpink" percent-complete="25"></mm-progress-bar>
+<mm-progress-bar indeterminate height="8" width="62" percent-complete="50"></mm-progress-bar></div>
 					</section>
 
 					<section>
@@ -139,50 +121,86 @@
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">group : </span><span class="italic">String&nbsp;(optional)&nbsp;</span><br/>
-									default : <span class="italic">none</span><br/>
+									<span class="bold">backgroundColor : </span><span class="italic">String&nbsp;&nbsp;</span><br/>
+									default : <span class="italic">#131313</span><br/>
 									options : <span class="italic">none</span><br/>
-									attribute : <span class="italic">group</span><br/>
+									attribute : <span class="italic">background-color</span><br/>
 									reflected to attribute : <span class="italic">no</span>
 								</td>
 								<td>
-									<span class="desc">The name of the group to which the radio button belongs.</span>
+									<span class="desc">The background color of the progress bar, as hex code or named color.</span>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">checked : </span><span class="italic">Boolean&nbsp;(optional)&nbsp;</span><br/>
-									default : <span class="italic">false</span><br/>
+									<span class="bold">fillColor : </span><span class="italic">String&nbsp;&nbsp;</span><br/>
+									default : <span class="italic">#367ABE</span><br/>
 									options : <span class="italic">none</span><br/>
-									attribute : <span class="italic">checked</span><br/>
+									attribute : <span class="italic">fill-color</span><br/>
 									reflected to attribute : <span class="italic">no</span>
 								</td>
 								<td>
-									<span class="desc">Checked attribute.</span>
+									<span class="desc">The color of the progress bar, as hex code or named color.</span>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">fitparent : </span><span class="italic">Boolean&nbsp;(optional)&nbsp;</span><br/>
+									<span class="bold">height : </span><span class="italic">Number&nbsp;&nbsp;</span><br/>
 									default : <span class="italic">null</span><br/>
 									options : <span class="italic">none</span><br/>
-									attribute : <span class="italic">fitparent</span><br/>
+									attribute : <span class="italic">height</span><br/>
 									reflected to attribute : <span class="italic">no</span>
 								</td>
 								<td>
-									<span class="desc">Instructs the component to fit to its parent container&#39;s width (percent or pixel width).</span>
+									<span class="desc">Height of progress bar, in px</span>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">disabled : </span><span class="italic">Boolean&nbsp;(optional)&nbsp;</span><br/>
+									<span class="bold">indeterminate : </span><span class="italic">Boolean&nbsp;&nbsp;</span><br/>
 									default : <span class="italic">false</span><br/>
 									options : <span class="italic">none</span><br/>
-									attribute : <span class="italic">disabled</span><br/>
+									attribute : <span class="italic">indeterminate</span><br/>
 									reflected to attribute : <span class="italic">no</span>
 								</td>
 								<td>
-									<span class="desc">Disable the item</span>
+									<span class="desc">Whether the progress bar is in an indeterminate state.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">percentComplete : </span><span class="italic">Number&nbsp;&nbsp;</span><br/>
+									default : <span class="italic">0</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">percent-complete</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">How full the progress bar is. 0 is empty, 100 is full.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">secondaryFillColor : </span><span class="italic">String&nbsp;&nbsp;</span><br/>
+									default : <span class="italic">#66ADF2</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">secondary-fill-color</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">The secondary color for the striped progress bar, as hex code or named color.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">width : </span><span class="italic">Number&nbsp;&nbsp;</span><br/>
+									default : <span class="italic">null</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">width</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">Width of progress bar, in px (fits to container by default)</span>
 								</td>
 							</tr>
 						</table>
@@ -198,33 +216,57 @@
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">group : </span>String (Optional)
-									<span class="desc italic">Default value: none</span>
-									<span class="desc">The name of the group to which the radio button belongs.</span>
+									<span class="bold">backgroundColor : </span>String
+									<span class="desc italic">Default value: #131313</span>
+									<span class="desc">The background color of the progress bar, as hex code or named color.</span>
 								</td>
 								<td>none</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">checked : </span>Boolean (Optional)
-									<span class="desc italic">Default value: false</span>
-									<span class="desc">Checked attribute.</span>
+									<span class="bold">fillColor : </span>String
+									<span class="desc italic">Default value: #367ABE</span>
+									<span class="desc">The color of the progress bar, as hex code or named color.</span>
 								</td>
 								<td>none</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">fitparent : </span>Boolean (Optional)
+									<span class="bold">height : </span>Number
 									<span class="desc italic">Default value: null</span>
-									<span class="desc">Instructs the component to fit to its parent container&#39;s width (percent or pixel width).</span>
+									<span class="desc">Height of progress bar, in px</span>
 								</td>
 								<td>none</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">disabled : </span>Boolean (Optional)
+									<span class="bold">indeterminate : </span>Boolean
 									<span class="desc italic">Default value: false</span>
-									<span class="desc">Disable the item</span>
+									<span class="desc">Whether the progress bar is in an indeterminate state.</span>
+								</td>
+								<td>none</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">percentComplete : </span>Number
+									<span class="desc italic">Default value: 0</span>
+									<span class="desc">How full the progress bar is. 0 is empty, 100 is full.</span>
+								</td>
+								<td>none</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">secondaryFillColor : </span>String
+									<span class="desc italic">Default value: #66ADF2</span>
+									<span class="desc">The secondary color for the striped progress bar, as hex code or named color.</span>
+								</td>
+								<td>none</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">width : </span>Number
+									<span class="desc italic">Default value: null</span>
+									<span class="desc">Width of progress bar, in px (fits to container by default)</span>
 								</td>
 								<td>none</td>
 							</tr>
@@ -232,38 +274,40 @@
 					</section>
 					-->
 
-
 					<section>
-						<h3>Events</h3>
+						<h3>Public Methods</h3>
 						<table>
 							<tr>
-								<th>Event</th>
-								<th>Event Detail</th>
+								<th>Method</th>
+								<th>Arguements</th>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">Type</span> : 'selected'</span>
-									
+									<span class="bold">styleBlock</span>(<span></span>)<br/>
+									<span class="desc">Returns an array of styles to be used in attribute binding.</span>
 								</td>
 								<td>
-									<span class="arg">
-										<span class="bold">checked</span> : <span class="italic">Boolean</span><br/>
-										<span class="desc">The status of this radio button&#39;s selection</span>
-									</span>
-									<span class="arg">
-										<span class="bold">item</span> : <span class="italic">Object</span><br/>
-										<span class="desc">A reference to the item which triggered the event</span>
-									</span>
+									none
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">classBlock</span>(<span></span>)<br/>
+									<span class="desc">Returns an array of classes to be used in attribute binding.</span>
+								</td>
+								<td>
+									none
 								</td>
 							</tr>
 						</table>
 					</section>
+
 				</div>
 				<div class="layout-push"></div>
 			</article>
 		</mm-docs-shell>
 		<script>
-			var name = "mm-radio",
+			var name = "mm-progress-bar",
 				articlesNav,
 				componentsNav,
 				docsShell,

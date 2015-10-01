@@ -94,40 +94,30 @@
 				</div>
 			</footer>			<article class="layout-article">
 				<div class="docs-content">
-					<h1>mm-radio</h1>
-					<p>A fully-styled radio button.</p>
+					<h1>mm-list-item</h1>
+					<p>A list item component used in other components that require lists of items, such as mm-dropdown and mm-menu.</p>
 					<hr/>
 					<section>
 						<h3>Example HTML Editor</h3>
 						<div class="editor-wrapper">
-							<div id="editor">&lt;mm-radio group=&quot;aces&quot; unresolved&gt;
-	&lt;label&gt;My Label 1&lt;/label&gt;
-&lt;/mm-radio&gt;
-&lt;mm-radio group=&quot;aces&quot; unresolved&gt;
-	&lt;label&gt;My Label 2&lt;/label&gt;
-&lt;/mm-radio&gt;
-&lt;mm-radio group=&quot;aces&quot; unresolved&gt;
-	&lt;label&gt;My Label 3&lt;/label&gt;
-&lt;/mm-radio&gt;
-&lt;mm-radio group=&quot;aces&quot; checked=&quot;true&quot; disabled=&quot;true&quot; unresolved&gt;
-	&lt;label&gt;My Label 4&lt;/label&gt;
-&lt;/mm-radio&gt;</div>
+							<div id="editor">&lt;div style=&quot;width:100%;&quot;&gt;
+	&lt;!-- Default Examples --&gt;
+	&lt;mm-list-item&gt;Item here 00&lt;/mm-list-item&gt;
+	&lt;mm-list-item&gt;I am a moderate amount of text. Just a bit but not too much&lt;/mm-list-item&gt;
+	&lt;!-- Truncated Example, with title attribute added dynamically --&gt;
+	&lt;mm-list-item &gt;Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.&lt;/mm-list-item&gt;
+&lt;/div&gt;</div>
 						</div>
 					</section>
 					<section>
 						<h3>Example Output</h3>
-						<div class="content-box example" id="example-mm-radio"><mm-radio group="aces" unresolved>
-	<label>My Label 1</label>
-</mm-radio>
-<mm-radio group="aces" unresolved>
-	<label>My Label 2</label>
-</mm-radio>
-<mm-radio group="aces" unresolved>
-	<label>My Label 3</label>
-</mm-radio>
-<mm-radio group="aces" checked="true" disabled="true" unresolved>
-	<label>My Label 4</label>
-</mm-radio></div>
+						<div class="content-box example" id="example-mm-list-item"><div style="width:100%;">
+	<!-- Default Examples -->
+	<mm-list-item>Item here 00</mm-list-item>
+	<mm-list-item>I am a moderate amount of text. Just a bit but not too much</mm-list-item>
+	<!-- Truncated Example, with title attribute added dynamically -->
+	<mm-list-item >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</mm-list-item>
+</div></div>
 					</section>
 
 					<section>
@@ -139,50 +129,108 @@
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">group : </span><span class="italic">String&nbsp;(optional)&nbsp;</span><br/>
-									default : <span class="italic">none</span><br/>
+									<span class="bold">resizeTarget : </span><span class="italic">&nbsp;(optional)&nbsp;</span><br/>
+									default : <span class="italic">this</span><br/>
 									options : <span class="italic">none</span><br/>
-									attribute : <span class="italic">group</span><br/>
+									attribute : <span class="italic">N/A</span><br/>
 									reflected to attribute : <span class="italic">no</span>
 								</td>
 								<td>
-									<span class="desc">The name of the group to which the radio button belongs.</span>
+									<span class="desc">Sets the target element which will respond on resize.</span>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">checked : </span><span class="italic">Boolean&nbsp;(optional)&nbsp;</span><br/>
+									<span class="bold">mutationTarget : </span><span class="italic">Object&nbsp;&nbsp;</span><br/>
+									default : <span class="italic">this</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">N/A</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">Sets the element which will be observed for mutations. Usually this is the component itself.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">observeSubtree : </span><span class="italic">Boolean&nbsp;&nbsp;</span><br/>
+									default : <span class="italic">true</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">N/A</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">Passed through to the internal mutation observer - set to true if mutations to not just target, but also target&#39;s descendants are to be observed.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">observeCharacterData : </span><span class="italic">Boolean&nbsp;&nbsp;</span><br/>
+									default : <span class="italic">true</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">N/A</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">Passed through to the internal mutation observer - Set to true if mutations to target&#39;s data are to be observed.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">observeAttributes : </span><span class="italic">Boolean&nbsp;&nbsp;</span><br/>
 									default : <span class="italic">false</span><br/>
 									options : <span class="italic">none</span><br/>
-									attribute : <span class="italic">checked</span><br/>
+									attribute : <span class="italic">N/A</span><br/>
 									reflected to attribute : <span class="italic">no</span>
 								</td>
 								<td>
-									<span class="desc">Checked attribute.</span>
+									<span class="desc">Passed through to the internal mutation observer - Set to true if mutations to target&#39;s attributes are to be observed.</span>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">fitparent : </span><span class="italic">Boolean&nbsp;(optional)&nbsp;</span><br/>
-									default : <span class="italic">null</span><br/>
-									options : <span class="italic">none</span><br/>
-									attribute : <span class="italic">fitparent</span><br/>
-									reflected to attribute : <span class="italic">no</span>
-								</td>
-								<td>
-									<span class="desc">Instructs the component to fit to its parent container&#39;s width (percent or pixel width).</span>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">disabled : </span><span class="italic">Boolean&nbsp;(optional)&nbsp;</span><br/>
+									<span class="bold">selected : </span><span class="italic">String&nbsp;(optional)&nbsp;</span><br/>
 									default : <span class="italic">false</span><br/>
 									options : <span class="italic">none</span><br/>
-									attribute : <span class="italic">disabled</span><br/>
+									attribute : <span class="italic">N/A</span><br/>
+									reflected to attribute : <span class="italic">yes</span>
+								</td>
+								<td>
+									<span class="desc">Whether or not this item is currently selected. This can be set as an attribute to provide a default value.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">highlighted : </span><span class="italic">Boolean&nbsp;(optional)&nbsp;</span><br/>
+									default : <span class="italic">false</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">N/A</span><br/>
+									reflected to attribute : <span class="italic">yes</span>
+								</td>
+								<td>
+									<span class="desc">Whether or not this item is highlighted. The user can highlight an item by mousing over it or navigating using the keyboard arrow keys.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">title : </span><span class="italic">String&nbsp;(optional)&nbsp;</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">N/A</span><br/>
 									reflected to attribute : <span class="italic">no</span>
 								</td>
 								<td>
-									<span class="desc">Disable the item</span>
+									<span class="desc">Native HTML attribute, will display the full text content of the list item as a hover tip. Added dynamically when the text content of the list item has been truncated (see: elementResize and updateTitle methods).</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">value : </span><span class="italic">String&nbsp;(optional)&nbsp;</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">value</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">The actual value associated with this list item. Useful in situations where displaying a human-readable name is preferred to the actual value.</span>
 								</td>
 							</tr>
 						</table>
@@ -198,33 +246,73 @@
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">group : </span>String (Optional)
-									<span class="desc italic">Default value: none</span>
-									<span class="desc">The name of the group to which the radio button belongs.</span>
+									<span class="bold">resizeTarget : </span> (Optional)
+									<span class="desc italic">Default value: this</span>
+									<span class="desc">Sets the target element which will respond on resize.</span>
 								</td>
 								<td>none</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">checked : </span>Boolean (Optional)
+									<span class="bold">mutationTarget : </span>Object
+									<span class="desc italic">Default value: this</span>
+									<span class="desc">Sets the element which will be observed for mutations. Usually this is the component itself.</span>
+								</td>
+								<td>none</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">observeSubtree : </span>Boolean
+									<span class="desc italic">Default value: true</span>
+									<span class="desc">Passed through to the internal mutation observer - set to true if mutations to not just target, but also target&#39;s descendants are to be observed.</span>
+								</td>
+								<td>none</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">observeCharacterData : </span>Boolean
+									<span class="desc italic">Default value: true</span>
+									<span class="desc">Passed through to the internal mutation observer - Set to true if mutations to target&#39;s data are to be observed.</span>
+								</td>
+								<td>none</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">observeAttributes : </span>Boolean
 									<span class="desc italic">Default value: false</span>
-									<span class="desc">Checked attribute.</span>
+									<span class="desc">Passed through to the internal mutation observer - Set to true if mutations to target&#39;s attributes are to be observed.</span>
 								</td>
 								<td>none</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">fitparent : </span>Boolean (Optional)
-									<span class="desc italic">Default value: null</span>
-									<span class="desc">Instructs the component to fit to its parent container&#39;s width (percent or pixel width).</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">disabled : </span>Boolean (Optional)
+									<span class="bold">selected : </span>String (Optional)
 									<span class="desc italic">Default value: false</span>
-									<span class="desc">Disable the item</span>
+									<span class="desc">Whether or not this item is currently selected. This can be set as an attribute to provide a default value.</span>
+								</td>
+								<td>none</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">highlighted : </span>Boolean (Optional)
+									<span class="desc italic">Default value: false</span>
+									<span class="desc">Whether or not this item is highlighted. The user can highlight an item by mousing over it or navigating using the keyboard arrow keys.</span>
+								</td>
+								<td>none</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">title : </span>String (Optional)
+									
+									<span class="desc">Native HTML attribute, will display the full text content of the list item as a hover tip. Added dynamically when the text content of the list item has been truncated (see: elementResize and updateTitle methods).</span>
+								</td>
+								<td>none</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">value : </span>String (Optional)
+									
+									<span class="desc">The actual value associated with this list item. Useful in situations where displaying a human-readable name is preferred to the actual value.</span>
 								</td>
 								<td>none</td>
 							</tr>
@@ -232,38 +320,40 @@
 					</section>
 					-->
 
-
 					<section>
-						<h3>Events</h3>
+						<h3>Public Methods</h3>
 						<table>
 							<tr>
-								<th>Event</th>
-								<th>Event Detail</th>
+								<th>Method</th>
+								<th>Arguements</th>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">Type</span> : 'selected'</span>
-									
+									<span class="bold">elementResize</span>(<span></span>)<br/>
+									<span class="desc">Called when the list item is resized. In turn, calls the updateTitle method (see: updateTitle).</span>
 								</td>
 								<td>
-									<span class="arg">
-										<span class="bold">checked</span> : <span class="italic">Boolean</span><br/>
-										<span class="desc">The status of this radio button&#39;s selection</span>
-									</span>
-									<span class="arg">
-										<span class="bold">item</span> : <span class="italic">Object</span><br/>
-										<span class="desc">A reference to the item which triggered the event</span>
-									</span>
+									none
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">updateTitle</span>(<span></span>)<br/>
+									<span class="desc">Updates the list item to include or remove a title attribute, depending upon whether or not the text content of the list item has been truncated.</span>
+								</td>
+								<td>
+									none
 								</td>
 							</tr>
 						</table>
 					</section>
+
 				</div>
 				<div class="layout-push"></div>
 			</article>
 		</mm-docs-shell>
 		<script>
-			var name = "mm-radio",
+			var name = "mm-list-item",
 				articlesNav,
 				componentsNav,
 				docsShell,

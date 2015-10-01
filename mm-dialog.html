@@ -94,28 +94,122 @@
 				</div>
 			</footer>			<article class="layout-article">
 				<div class="docs-content">
-					<h1>mm-input</h1>
-					<p>A fully-styled text input.</p>
+					<h1>mm-dialog</h1>
+					<p>A wrapper around mm-modal used to quickly create fully styled dialog boxes.</p>
 					<hr/>
 					<section>
 						<h3>Example HTML Editor</h3>
 						<div class="editor-wrapper">
-							<div id="editor">&lt;!-- Default Example --&gt;
-&lt;mm-input&gt;&lt;/mm-input&gt;
-&lt;!-- Search and Clear Example --&gt;
-&lt;mm-input placeholder=&quot;Search and Clear&quot; search clear&gt;&lt;/mm-input&gt;
-&lt;!-- Clear and Custom Icon Example --&gt;
-&lt;mm-input placeholder=&quot;Icon and Clear&quot; icon=&quot;calendar&quot; clear width=&quot;250&quot;&gt;&lt;/mm-input&gt;</div>
+							<div id="editor">&lt;template is=&quot;dom-bind&quot;&gt;
+
+	&lt;mm-dialog id=&quot;testDialog&quot;
+		type=&quot;{{dialogType}}&quot;
+		header=&quot;Call me Ishmael.&quot;&gt;
+		&lt;p&gt;Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.&lt;/p&gt;
+	&lt;/mm-dialog&gt;
+	
+	&lt;div&gt;
+		&lt;mm-dropdown value=&quot;{{dialogType}}&quot; placeholder=&quot;Choose Dialog Type&quot;&gt;
+			&lt;mm-list-item value=&quot;info&quot;&gt;Info&lt;/mm-list-item&gt;
+			&lt;mm-list-item value=&quot;success&quot;&gt;Success&lt;/mm-list-item&gt;
+			&lt;mm-list-item value=&quot;warning&quot;&gt;Warning&lt;/mm-list-item&gt;
+			&lt;mm-list-item value=&quot;error&quot;&gt;Error&lt;/mm-list-item&gt;
+		&lt;/mm-dropdown&gt;
+		&lt;mm-button id=&quot;showBtn&quot; disabled$=&quot;{{!dialogType}}&quot;&gt;
+			&lt;label&gt;Show Dialog&lt;/label&gt;
+		&lt;/mm-button&gt;
+	&lt;/div&gt;
+	
+&lt;/template&gt;
+
+&lt;script&gt;
+	window.addEventListener(&quot;WebComponentsReady&quot;, function() { 
+		var sb = document.getElementById(&quot;showBtn&quot;),
+			td = document.getElementById(&quot;testDialog&quot;);
+
+		td.actions = [
+			{
+				label: &quot;Cancel&quot;,
+				callback: function(e,host) {
+					host.hide();
+				}
+			},
+			{
+				label: &quot;OK&quot;,
+				type: &quot;primary&quot;,
+				callback: function(e,host) {
+					host.fire(&#39;confirm&#39;);
+					host.hide();
+				}
+			}
+		];
+
+		sb.addEventListener(&#39;click&#39;, function showDialog(e) {
+			td.show();
+		});
+
+		td.addEventListener(&#39;confirm&#39;, function() {
+			console.log(&#39;Confirmed.&#39;);
+		});
+	});
+&lt;/script&gt;</div>
 						</div>
 					</section>
 					<section>
 						<h3>Example Output</h3>
-						<div class="content-box example" id="example-mm-input"><!-- Default Example -->
-<mm-input></mm-input>
-<!-- Search and Clear Example -->
-<mm-input placeholder="Search and Clear" search clear></mm-input>
-<!-- Clear and Custom Icon Example -->
-<mm-input placeholder="Icon and Clear" icon="calendar" clear width="250"></mm-input></div>
+						<div class="content-box example" id="example-mm-dialog"><template is="dom-bind">
+
+	<mm-dialog id="testDialog"
+		type="{{dialogType}}"
+		header="Call me Ishmael.">
+		<p>Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.</p>
+	</mm-dialog>
+	
+	<div>
+		<mm-dropdown value="{{dialogType}}" placeholder="Choose Dialog Type">
+			<mm-list-item value="info">Info</mm-list-item>
+			<mm-list-item value="success">Success</mm-list-item>
+			<mm-list-item value="warning">Warning</mm-list-item>
+			<mm-list-item value="error">Error</mm-list-item>
+		</mm-dropdown>
+		<mm-button id="showBtn" disabled$="{{!dialogType}}">
+			<label>Show Dialog</label>
+		</mm-button>
+	</div>
+	
+</template>
+
+<script>
+	window.addEventListener("WebComponentsReady", function() { 
+		var sb = document.getElementById("showBtn"),
+			td = document.getElementById("testDialog");
+
+		td.actions = [
+			{
+				label: "Cancel",
+				callback: function(e,host) {
+					host.hide();
+				}
+			},
+			{
+				label: "OK",
+				type: "primary",
+				callback: function(e,host) {
+					host.fire('confirm');
+					host.hide();
+				}
+			}
+		];
+
+		sb.addEventListener('click', function showDialog(e) {
+			td.show();
+		});
+
+		td.addEventListener('confirm', function() {
+			console.log('Confirmed.');
+		});
+	});
+</script></div>
 					</section>
 
 					<section>
@@ -127,158 +221,109 @@
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">validation : </span><span class="italic">String&nbsp;(optional)&nbsp;</span><br/>
-									default : <span class="italic">none</span><br/>
-									options : <span class="italic"><span class="option">empty</span><span class="option">int</span><span class="option">decimal</span><span class="option">email</span><span class="option">alpha</span><span class="option">whitespace</span><span class="option">checked</span><span class="option">blank</span></span><br/>
-									attribute : <span class="italic">validation</span><br/>
-									reflected to attribute : <span class="italic">no</span>
-								</td>
-								<td>
-									<span class="desc">Define which type of validation should be performed. Multiple validation rules may be applied by delimiting them with the &#39;|&#39; (vertical bar) character</span>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">error : </span><span class="italic">Boolean&nbsp;(optional)&nbsp;</span><br/>
-									default : <span class="italic">false</span><br/>
-									options : <span class="italic">none</span><br/>
-									attribute : <span class="italic">error</span><br/>
-									reflected to attribute : <span class="italic">no</span>
-								</td>
-								<td>
-									<span class="desc">Used to display a visual error state, can be set via validation or directly.</span>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">rules : </span><span class="italic">Object&nbsp;(optional)&nbsp;</span><br/>
-									default : <span class="italic">empty, int, decimal, email, alpha, whitespace, checked, blank</span><br/>
+									<span class="bold">depth : </span><span class="italic">Number&nbsp;&nbsp;(read-only)</span><br/>
+									default : <span class="italic">0</span><br/>
 									options : <span class="italic">none</span><br/>
 									attribute : <span class="italic">N/A</span><br/>
 									reflected to attribute : <span class="italic">no</span>
 								</td>
 								<td>
-									<span class="desc">Sets or returns an object containing methods for each type of validation to be performed.</span>
+									<span class="desc">Returns the z-index depth of the element.</span>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">placeholder : </span><span class="italic">String&nbsp;(optional)&nbsp;</span><br/>
-									default : <span class="italic">none</span><br/>
-									options : <span class="italic">none</span><br/>
-									attribute : <span class="italic">placeholder</span><br/>
+									<span class="bold">stackType : </span><span class="italic">String&nbsp;&nbsp;</span><br/>
+									default : <span class="italic">ui</span><br/>
+									options : <span class="italic"><span class="option">ui</span><span class="option">modal</span><span class="option">tooltip</span></span><br/>
+									attribute : <span class="italic">stack-type</span><br/>
 									reflected to attribute : <span class="italic">no</span>
 								</td>
 								<td>
-									<span class="desc">Default text which appears in the textarea</span>
+									<span class="desc">Sets or returns the stacking type for the element. Stacking types are &#39;ui&#39; which starts at an index of 10000, &#39;modal&#39; which starts at index 20000, and &#39;tooltip&#39; which starts at index 30000.</span>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">type : </span><span class="italic">String&nbsp;(optional)&nbsp;</span><br/>
-									default : <span class="italic">text</span><br/>
-									options : <span class="italic"><span class="option">text</span><span class="option">password</span><span class="option">email</span><span class="option">number</span><span class="option">tel</span><span class="option">search</span><span class="option">url</span></span><br/>
+									<span class="bold">type : </span><span class="italic">String&nbsp;&nbsp;</span><br/>
+									default : <span class="italic">info</span><br/>
+									options : <span class="italic"><span class="option">error</span><span class="option">info</span><span class="option">success</span><span class="option">warning</span></span><br/>
 									attribute : <span class="italic">type</span><br/>
-									reflected to attribute : <span class="italic">no</span>
+									reflected to attribute : <span class="italic">yes</span>
 								</td>
 								<td>
-									<span class="desc">The type of the input field, as per native input</span>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">icon : </span><span class="italic">String&nbsp;(optional)&nbsp;</span><br/>
-									default : <span class="italic">search</span><br/>
-									options : <span class="italic"><span class="option">*see mm-icon for options</span></span><br/>
-									attribute : <span class="italic">icon</span><br/>
-									reflected to attribute : <span class="italic">no</span>
-								</td>
-								<td>
-									<span class="desc">Adds a custom icon glyph to the input field, using icons found in mm-icon.</span>
+									<span class="desc">Instructs the component to display a specific icon to denote the message type i.e. - &#39;error&#39; or &#39;warning&#39;.</span>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">search : </span><span class="italic">Boolean&nbsp;(optional)&nbsp;</span><br/>
-									default : <span class="italic">false</span><br/>
+									<span class="bold">header : </span><span class="italic">String&nbsp;(optional)&nbsp;</span><br/>
 									options : <span class="italic">none</span><br/>
-									attribute : <span class="italic">search</span><br/>
+									attribute : <span class="italic">header</span><br/>
 									reflected to attribute : <span class="italic">no</span>
 								</td>
 								<td>
-									<span class="desc">Display a search icon.</span>
+									<span class="desc">The header text to be displayed in the header of dialog window.</span>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">clear : </span><span class="italic">Boolean&nbsp;(optional)&nbsp;</span><br/>
-									default : <span class="italic">false</span><br/>
-									options : <span class="italic">none</span><br/>
-									attribute : <span class="italic">clear</span><br/>
-									reflected to attribute : <span class="italic">no</span>
-								</td>
-								<td>
-									<span class="desc">Display a clear button when text is input.</span>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">width : </span><span class="italic">Int&nbsp;(optional)&nbsp;</span><br/>
-									default : <span class="italic">native default</span><br/>
+									<span class="bold">width : </span><span class="italic">int&nbsp;(optional)&nbsp;</span><br/>
+									default : <span class="italic">600</span><br/>
 									options : <span class="italic">none</span><br/>
 									attribute : <span class="italic">width</span><br/>
 									reflected to attribute : <span class="italic">no</span>
 								</td>
 								<td>
-									<span class="desc">Native - width of the textarea in pixels.</span>
+									<span class="desc">Sets the width, in pixels, of the dialog window.</span>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">maxlength : </span><span class="italic">Int&nbsp;(optional)&nbsp;</span><br/>
-									default : <span class="italic">native default</span><br/>
+									<span class="bold">hidden : </span><span class="italic">string&nbsp;(optional)&nbsp;</span><br/>
+									default : <span class="italic">true</span><br/>
 									options : <span class="italic">none</span><br/>
-									attribute : <span class="italic">maxlength</span><br/>
+									attribute : <span class="italic">hidden</span><br/>
 									reflected to attribute : <span class="italic">no</span>
 								</td>
 								<td>
-									<span class="desc">Native - Maximum number of characters allowed in the field.</span>
+									<span class="desc">Returns the visible state of the dialog window. Can be used in binding scenarios as an alternative to show or hide the dialog.</span>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">value : </span><span class="italic">String&nbsp;&nbsp;</span><br/>
-									default : <span class="italic">null</span><br/>
-									options : <span class="italic">none</span><br/>
-									attribute : <span class="italic">value</span><br/>
-									reflected to attribute : <span class="italic">no</span>
-								</td>
-								<td>
-									<span class="desc">the value of the input</span>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">disabled : </span><span class="italic">Boolean&nbsp;(optional)&nbsp;</span><br/>
+									<span class="bold">dismiss : </span><span class="italic">Boolean&nbsp;(optional)&nbsp;</span><br/>
 									default : <span class="italic">false</span><br/>
 									options : <span class="italic">none</span><br/>
-									attribute : <span class="italic">disabled</span><br/>
+									attribute : <span class="italic">dismiss</span><br/>
 									reflected to attribute : <span class="italic">no</span>
 								</td>
 								<td>
-									<span class="desc">Disable the input</span>
+									<span class="desc">If set, determines whether or not the dialog can be dismissed without user action (see: actions).</span>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">fitparent : </span><span class="italic">Boolean&nbsp;(optional)&nbsp;</span><br/>
+									<span class="bold">noscroll : </span><span class="italic">Boolean&nbsp;(optional)&nbsp;</span><br/>
 									default : <span class="italic">false</span><br/>
 									options : <span class="italic">none</span><br/>
-									attribute : <span class="italic">fitparent</span><br/>
+									attribute : <span class="italic">noscroll</span><br/>
 									reflected to attribute : <span class="italic">no</span>
 								</td>
 								<td>
-									<span class="desc">Instructs the component to fit to its parent container&#39;s width (percent or pixel width).</span>
+									<span class="desc">If set, will disable page scrolling while the dialog is displayed.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">actions : </span><span class="italic">Array&nbsp;(optional)&nbsp;</span><br/>
+									default : <span class="italic">label: &#39;OK&#39;, type: &#39;secondary&#39;, callback: function(e,host) { host.hide(); }</span><br/>
+									options : <span class="italic"><span class="option"></span></span><br/>
+									attribute : <span class="italic">N/A</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">An array of objects representing the actions to be displayed in the footer of the dialog. Each object provided should follow the format { label: String, type: String, callback: Function }. The property &#39;label&#39; sets the name of the action. The property &#39;type&#39; (&#39;primary&#39;, &#39;secondary&#39;, or &#39;action&#39;) sets the button type. The property &#39;callback&#39; may take optional arguments for the event object and the mm-dialog node.</span>
 								</td>
 							</tr>
 						</table>
@@ -294,107 +339,75 @@
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">validation : </span>String (Optional)
-									<span class="desc italic">Default value: none</span>
-									<span class="desc">Define which type of validation should be performed. Multiple validation rules may be applied by delimiting them with the &#39;|&#39; (vertical bar) character</span>
+									<span class="bold">depth : </span>Number
+									<span class="desc italic">Default value: 0</span>
+									<span class="desc">Returns the z-index depth of the element.</span>
 								</td>
-								<td><span class="option">'empty'</span><span class="option">'int'</span><span class="option">'decimal'</span><span class="option">'email'</span><span class="option">'alpha'</span><span class="option">'whitespace'</span><span class="option">'checked'</span><span class="option">'blank'</span></td>
+								<td>none</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">error : </span>Boolean (Optional)
+									<span class="bold">stackType : </span>String
+									<span class="desc italic">Default value: ui</span>
+									<span class="desc">Sets or returns the stacking type for the element. Stacking types are &#39;ui&#39; which starts at an index of 10000, &#39;modal&#39; which starts at index 20000, and &#39;tooltip&#39; which starts at index 30000.</span>
+								</td>
+								<td><span class="option">'ui'</span><span class="option">'modal'</span><span class="option">'tooltip'</span></td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">type : </span>String
+									<span class="desc italic">Default value: info</span>
+									<span class="desc">Instructs the component to display a specific icon to denote the message type i.e. - &#39;error&#39; or &#39;warning&#39;.</span>
+								</td>
+								<td><span class="option">'error'</span><span class="option">'info'</span><span class="option">'success'</span><span class="option">'warning'</span></td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">header : </span>String (Optional)
+									
+									<span class="desc">The header text to be displayed in the header of dialog window.</span>
+								</td>
+								<td>none</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">width : </span>int (Optional)
+									<span class="desc italic">Default value: 600</span>
+									<span class="desc">Sets the width, in pixels, of the dialog window.</span>
+								</td>
+								<td>none</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">hidden : </span>string (Optional)
+									<span class="desc italic">Default value: true</span>
+									<span class="desc">Returns the visible state of the dialog window. Can be used in binding scenarios as an alternative to show or hide the dialog.</span>
+								</td>
+								<td>none</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">dismiss : </span>Boolean (Optional)
 									<span class="desc italic">Default value: false</span>
-									<span class="desc">Used to display a visual error state, can be set via validation or directly.</span>
+									<span class="desc">If set, determines whether or not the dialog can be dismissed without user action (see: actions).</span>
 								</td>
 								<td>none</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">rules : </span>Object (Optional)
-									<span class="desc italic">Default value: empty, int, decimal, email, alpha, whitespace, checked, blank</span>
-									<span class="desc">Sets or returns an object containing methods for each type of validation to be performed.</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">placeholder : </span>String (Optional)
-									<span class="desc italic">Default value: none</span>
-									<span class="desc">Default text which appears in the textarea</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">type : </span>String (Optional)
-									<span class="desc italic">Default value: text</span>
-									<span class="desc">The type of the input field, as per native input</span>
-								</td>
-								<td><span class="option">'text'</span><span class="option">'password'</span><span class="option">'email'</span><span class="option">'number'</span><span class="option">'tel'</span><span class="option">'search'</span><span class="option">'url'</span></td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">icon : </span>String (Optional)
-									<span class="desc italic">Default value: search</span>
-									<span class="desc">Adds a custom icon glyph to the input field, using icons found in mm-icon.</span>
-								</td>
-								<td><span class="option">'*see mm-icon for options'</span></td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">search : </span>Boolean (Optional)
+									<span class="bold">noscroll : </span>Boolean (Optional)
 									<span class="desc italic">Default value: false</span>
-									<span class="desc">Display a search icon.</span>
+									<span class="desc">If set, will disable page scrolling while the dialog is displayed.</span>
 								</td>
 								<td>none</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">clear : </span>Boolean (Optional)
-									<span class="desc italic">Default value: false</span>
-									<span class="desc">Display a clear button when text is input.</span>
+									<span class="bold">actions : </span>Array (Optional)
+									<span class="desc italic">Default value: label: &#39;OK&#39;, type: &#39;secondary&#39;, callback: function(e,host) { host.hide(); }</span>
+									<span class="desc">An array of objects representing the actions to be displayed in the footer of the dialog. Each object provided should follow the format { label: String, type: String, callback: Function }. The property &#39;label&#39; sets the name of the action. The property &#39;type&#39; (&#39;primary&#39;, &#39;secondary&#39;, or &#39;action&#39;) sets the button type. The property &#39;callback&#39; may take optional arguments for the event object and the mm-dialog node.</span>
 								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">width : </span>Int (Optional)
-									<span class="desc italic">Default value: native default</span>
-									<span class="desc">Native - width of the textarea in pixels.</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">maxlength : </span>Int (Optional)
-									<span class="desc italic">Default value: native default</span>
-									<span class="desc">Native - Maximum number of characters allowed in the field.</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">value : </span>String
-									<span class="desc italic">Default value: null</span>
-									<span class="desc">the value of the input</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">disabled : </span>Boolean (Optional)
-									<span class="desc italic">Default value: false</span>
-									<span class="desc">Disable the input</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">fitparent : </span>Boolean (Optional)
-									<span class="desc italic">Default value: false</span>
-									<span class="desc">Instructs the component to fit to its parent container&#39;s width (percent or pixel width).</span>
-								</td>
-								<td>none</td>
+								<td><span class="option">''</span></td>
 							</tr>
 						</table>
 					</section>
@@ -409,8 +422,8 @@
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">styleBlock</span>(<span></span>)<br/>
-									<span class="desc">Returns an array of styles to be used in attribute binding.</span>
+									<span class="bold">moveToTop</span>(<span></span>)<br/>
+									<span class="desc">Instructs the element to move to the top index of it&#39;s stacking type.</span>
 								</td>
 								<td>
 									none
@@ -418,8 +431,8 @@
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">classBlock</span>(<span></span>)<br/>
-									<span class="desc">Returns an array of classes to be used in attribute binding.</span>
+									<span class="bold">show</span>(<span></span>)<br/>
+									<span class="desc">Shows the dialog.</span>
 								</td>
 								<td>
 									none
@@ -427,17 +440,8 @@
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">validate</span>(<span></span>)<br/>
-									<span class="desc">Instructs the component to validate its current value against the validation string method.</span>
-								</td>
-								<td>
-									none
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">clearInput</span>(<span></span>)<br/>
-									<span class="desc">Clear the input&#39;s value.</span>
+									<span class="bold">hide</span>(<span></span>)<br/>
+									<span class="desc">Hides the dialog.</span>
 								</td>
 								<td>
 									none
@@ -446,33 +450,12 @@
 						</table>
 					</section>
 
-					<section>
-						<h3>Events</h3>
-						<table>
-							<tr>
-								<th>Event</th>
-								<th>Event Detail</th>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">Type</span> : 'changed'</span>
-									
-								</td>
-								<td>
-									<span class="arg">
-										<span class="bold">value</span> : <span class="italic">String</span><br/>
-										<span class="desc">The updated value of the text input.</span>
-									</span>
-								</td>
-							</tr>
-						</table>
-					</section>
 				</div>
 				<div class="layout-push"></div>
 			</article>
 		</mm-docs-shell>
 		<script>
-			var name = "mm-input",
+			var name = "mm-dialog",
 				articlesNav,
 				componentsNav,
 				docsShell,

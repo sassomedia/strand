@@ -94,42 +94,32 @@
 				</div>
 			</footer>			<article class="layout-article">
 				<div class="docs-content">
-					<h1>mm-pulldown-button</h1>
-					<p>A fully-styled pulldown button, with multiple options.</p>
+					<h1>mm-menu</h1>
+					<p>A popover menu</p>
 					<hr/>
 					<section>
 						<h3>Example HTML Editor</h3>
 						<div class="editor-wrapper">
-							<div id="editor">&lt;mm-pulldown-button type=&quot;primary&quot; unresolved&gt;
-	&lt;mm-list-item&gt;single 3PAS&lt;/mm-list-item&gt;
-	&lt;mm-list-item&gt;bulk 3PAS&lt;/mm-list-item&gt;
-	&lt;mm-list-item&gt;Upload Assets&lt;/mm-list-item&gt;
-	&lt;mm-icon type=&quot;plus&quot; width=&quot;12&quot; height=&quot;12&quot; shapeRendering=&quot;auto&quot; optimize=&quot;true&quot;&gt;&lt;/mm-icon&gt;
-	&lt;label&gt;Add Creative&lt;/label&gt;
-&lt;/mm-pulldown-button&gt;
-&lt;mm-pulldown-button type=&quot;secondary&quot; unresolved&gt;
-	&lt;mm-list-item&gt;single 3PAS&lt;/mm-list-item&gt;
-	&lt;mm-list-item&gt;bulk 3PAS&lt;/mm-list-item&gt;
-	&lt;mm-list-item&gt;Upload Assets&lt;/mm-list-item&gt;
-	&lt;label&gt;Add Creative&lt;/label&gt;
-&lt;/mm-pulldown-button&gt;</div>
+							<div id="editor">&lt;mm-icon type=&quot;actions&quot; height=&quot;15&quot; width=&quot;15&quot; id=&quot;cpb2&quot;&gt;&lt;/mm-icon&gt;
+&lt;mm-menu id=&quot;testMenu&quot; direction=&quot;s&quot; offset=&quot;15&quot; target=&quot;#cpb2&quot;&gt;
+	&lt;mm-list-item value=&quot;m1&quot;&gt;menu item 1&lt;/mm-list-item&gt;
+	&lt;mm-list-item value=&quot;m2&quot;&gt;menu item 2&lt;/mm-list-item&gt;
+	&lt;mm-list-item value=&quot;m3&quot;&gt;menu item 3&lt;/mm-list-item&gt;
+	&lt;mm-list-item value=&quot;m4&quot;&gt;menu item 4&lt;/mm-list-item&gt;
+	&lt;mm-list-item value=&quot;m5&quot;&gt;menu item 5&lt;/mm-list-item&gt;
+&lt;/mm-menu&gt;</div>
 						</div>
 					</section>
 					<section>
 						<h3>Example Output</h3>
-						<div class="content-box example" id="example-mm-pulldown-button"><mm-pulldown-button type="primary" unresolved>
-	<mm-list-item>single 3PAS</mm-list-item>
-	<mm-list-item>bulk 3PAS</mm-list-item>
-	<mm-list-item>Upload Assets</mm-list-item>
-	<mm-icon type="plus" width="12" height="12" shapeRendering="auto" optimize="true"></mm-icon>
-	<label>Add Creative</label>
-</mm-pulldown-button>
-<mm-pulldown-button type="secondary" unresolved>
-	<mm-list-item>single 3PAS</mm-list-item>
-	<mm-list-item>bulk 3PAS</mm-list-item>
-	<mm-list-item>Upload Assets</mm-list-item>
-	<label>Add Creative</label>
-</mm-pulldown-button></div>
+						<div class="content-box example" id="example-mm-menu"><mm-icon type="actions" height="15" width="15" id="cpb2"></mm-icon>
+<mm-menu id="testMenu" direction="s" offset="15" target="#cpb2">
+	<mm-list-item value="m1">menu item 1</mm-list-item>
+	<mm-list-item value="m2">menu item 2</mm-list-item>
+	<mm-list-item value="m3">menu item 3</mm-list-item>
+	<mm-list-item value="m4">menu item 4</mm-list-item>
+	<mm-list-item value="m5">menu item 5</mm-list-item>
+</mm-menu></div>
 					</section>
 
 					<section>
@@ -141,25 +131,26 @@
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">overflow : </span><span class="italic">String&nbsp;&nbsp;</span><br/>
-									default : <span class="italic">hidden</span><br/>
-									options : <span class="italic"><span class="option">hidden</span><span class="option">visible</span></span><br/>
-									attribute : <span class="italic">overflow</span><br/>
-									reflected to attribute : <span class="italic">no</span>
+									<span class="bold">direction : </span><span class="italic">String&nbsp;&nbsp;</span><br/>
+									default : <span class="italic">s</span><br/>
+									options : <span class="italic"><span class="option">n</span><span class="option">e</span><span class="option">s</span><span class="option">w</span></span><br/>
+									attribute : <span class="italic">direction</span><br/>
+									reflected to attribute : <span class="italic">yes</span>
 								</td>
 								<td>
-									<span class="desc">The behavior of the dropdown panel when the width of its content exceeds the width of the element. If set to `hidden`, the dropdown panel will truncate its content. If set to `visible`, the dropdown panel will expand to the width of its content.</span>
+									<span class="desc">The position of the popover panel relative to its target, expressed as a cardinal direction. If the panel is positioned outside the viewport because of this property, the element will attempt to reverse the direction.</span>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">overflowWidth : </span><span class="italic">Number&nbsp;(optional)&nbsp;</span><br/>
+									<span class="bold">target : </span><span class="italic">Object or String&nbsp;&nbsp;</span><br/>
+									default : <span class="italic">none</span><br/>
 									options : <span class="italic">none</span><br/>
-									attribute : <span class="italic">overflowWidth</span><br/>
+									attribute : <span class="italic">target</span><br/>
 									reflected to attribute : <span class="italic">no</span>
 								</td>
 								<td>
-									<span class="desc">The maximum width of the dropdown panel, after which it will truncate its content. If overflowWidth is set, the element will ignore its overflow property.</span>
+									<span class="desc">An HTMLElement that toggles the element&#39;s visual state when clicked. A valid selector may be passed to this attribute as a String.</span>
 								</td>
 							</tr>
 							<tr>
@@ -294,54 +285,6 @@
 									<span class="desc">The value of the state property when the element is opened</span>
 								</td>
 							</tr>
-							<tr>
-								<td>
-									<span class="bold">fitparent : </span><span class="italic">Boolean&nbsp;&nbsp;</span><br/>
-									default : <span class="italic">false</span><br/>
-									options : <span class="italic">none</span><br/>
-									attribute : <span class="italic">fitparent</span><br/>
-									reflected to attribute : <span class="italic">no</span>
-								</td>
-								<td>
-									<span class="desc">determines if the button fits to its parent container&#39;s width. when true the button will effectively be width:100%</span>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">disabled : </span><span class="italic">Boolean&nbsp;&nbsp;</span><br/>
-									default : <span class="italic">false</span><br/>
-									options : <span class="italic">none</span><br/>
-									attribute : <span class="italic">disabled</span><br/>
-									reflected to attribute : <span class="italic">no</span>
-								</td>
-								<td>
-									<span class="desc">the current status of the textarea. When true user input will not be accepted and the field is greyed out.</span>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">error : </span><span class="italic">Boolean&nbsp;&nbsp;</span><br/>
-									default : <span class="italic">false</span><br/>
-									options : <span class="italic">none</span><br/>
-									attribute : <span class="italic">error</span><br/>
-									reflected to attribute : <span class="italic">no</span>
-								</td>
-								<td>
-									<span class="desc">Triggers the display of invalid visual state.</span>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">type : </span><span class="italic">String&nbsp;(optional)&nbsp;</span><br/>
-									default : <span class="italic">primary</span><br/>
-									options : <span class="italic"><span class="option">primary</span><span class="option">secondary</span></span><br/>
-									attribute : <span class="italic">type</span><br/>
-									reflected to attribute : <span class="italic">no</span>
-								</td>
-								<td>
-									<span class="desc">The type of styling to be applied to the button</span>
-								</td>
-							</tr>
 						</table>
 					</section>
 
@@ -355,17 +298,17 @@
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">overflow : </span>String
-									<span class="desc italic">Default value: hidden</span>
-									<span class="desc">The behavior of the dropdown panel when the width of its content exceeds the width of the element. If set to `hidden`, the dropdown panel will truncate its content. If set to `visible`, the dropdown panel will expand to the width of its content.</span>
+									<span class="bold">direction : </span>String
+									<span class="desc italic">Default value: s</span>
+									<span class="desc">The position of the popover panel relative to its target, expressed as a cardinal direction. If the panel is positioned outside the viewport because of this property, the element will attempt to reverse the direction.</span>
 								</td>
-								<td><span class="option">'hidden'</span><span class="option">'visible'</span></td>
+								<td><span class="option">'n'</span><span class="option">'e'</span><span class="option">'s'</span><span class="option">'w'</span></td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">overflowWidth : </span>Number (Optional)
-									
-									<span class="desc">The maximum width of the dropdown panel, after which it will truncate its content. If overflowWidth is set, the element will ignore its overflow property.</span>
+									<span class="bold">target : </span>Object or String
+									<span class="desc italic">Default value: none</span>
+									<span class="desc">An HTMLElement that toggles the element&#39;s visual state when clicked. A valid selector may be passed to this attribute as a String.</span>
 								</td>
 								<td>none</td>
 							</tr>
@@ -456,38 +399,6 @@
 									<span class="desc">The value of the state property when the element is opened</span>
 								</td>
 								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">fitparent : </span>Boolean
-									<span class="desc italic">Default value: false</span>
-									<span class="desc">determines if the button fits to its parent container&#39;s width. when true the button will effectively be width:100%</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">disabled : </span>Boolean
-									<span class="desc italic">Default value: false</span>
-									<span class="desc">the current status of the textarea. When true user input will not be accepted and the field is greyed out.</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">error : </span>Boolean
-									<span class="desc italic">Default value: false</span>
-									<span class="desc">Triggers the display of invalid visual state.</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">type : </span>String (Optional)
-									<span class="desc italic">Default value: primary</span>
-									<span class="desc">The type of styling to be applied to the button</span>
-								</td>
-								<td><span class="option">'primary'</span><span class="option">'secondary'</span></td>
 							</tr>
 						</table>
 					</section>
@@ -621,34 +532,6 @@
 									none
 								</td>
 							</tr>
-							<tr>
-								<td>
-									<span class="bold">Type</span> : 'selected'</span>
-									
-								</td>
-								<td>
-									<span class="arg">
-										<span class="bold">active</span> : <span class="italic">Boolean</span><br/>
-										<span class="desc">The item&#39;s active state</span>
-									</span>
-									<span class="arg">
-										<span class="bold">index</span> : <span class="italic">int</span><br/>
-										<span class="desc">The index of the active item</span>
-									</span>
-									<span class="arg">
-										<span class="bold">item</span> : <span class="italic">Object</span><br/>
-										<span class="desc">A reference to the item which triggered the event</span>
-									</span>
-									<span class="arg">
-										<span class="bold">selected</span> : <span class="italic">Boolean</span><br/>
-										<span class="desc">The item&#39;s selected state</span>
-									</span>
-									<span class="arg">
-										<span class="bold">value</span> : <span class="italic">String</span><br/>
-										<span class="desc">Value of the selected item, usually it&#39;s label</span>
-									</span>
-								</td>
-							</tr>
 						</table>
 					</section>
 				</div>
@@ -656,7 +539,7 @@
 			</article>
 		</mm-docs-shell>
 		<script>
-			var name = "mm-pulldown-button",
+			var name = "mm-menu",
 				articlesNav,
 				componentsNav,
 				docsShell,

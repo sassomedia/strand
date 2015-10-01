@@ -6,45 +6,44 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 		<meta name="HandheldFriendly" content="True"/>
 		<meta name="MobileOptimized" content="320"/>
-		<meta name="theme-color" content="#000000"/><!-- TODO : Add correct theme color -->
+		<meta name="theme-color" content="#000000"/>
 		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1"/>
 		<title>Strand Web Components</title>
-		<script language="javascript" src="bower_components/webcomponentsjs/webcomponents.js"></script>
+		<script language="javascript" src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+		<link rel="stylesheet" type="text/css" href="docs.css"/>
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/github.min.css">
 		<link rel="import" href="bower_components/strand/dist/strand.html"/>
-		<script language="javascript" src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>
-		<script language="javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
-		<script language="javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
-		<script language="javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="docs.css" shim-shadowdom/>
-		<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css"/>
+		<script language="javascript" src="//cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/ace.min.js"></script>
+		<script language="javascript" src="//cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/mode-html.js"></script>
+		<script language="javascript" src="//cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/theme-chrome.js"></script>
+		<script language="javascript" src="//cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/worker-html.js"></script>
+		<script language="javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script language="javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+		<script language="javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
 	</head>	<body unresolved>
-		<mm-docs-shell id="docsShell" version="1.1.3" mobileHeader="Strand Docs">
-			<div class="docs-logo">
-				<a href="http://mediamath.github.io/strand/" target="_self" class="strand-logo">
-					<img src="images/strand-logo.svg" />
-				</a>
-				<p class="mini-subhead version">v1.1.3</p>
-			</div>
+		<mm-docs-shell id="docsShell" version="2.0.0" mobile-header="Strand Docs">
 			<mm-docs-nav id="articlesNav">
 				<mm-header size="medium">Articles</mm-header>
 				<mm-list-item id="getting_started" value="article_getting_started.html">Getting Started</mm-list-item>
-				<mm-list-item id="data_comps_intro" value="article_data_comps_intro.html">Introducing Data Components</mm-list-item>
-				<mm-list-item id="data_comps_using_ajax" value="article_data_comps_using_ajax.html" class="child"> Using MM-Ajax</mm-list-item>
-				<mm-list-item id="data_comps_using_sync" value="article_data_comps_using_sync.html" class="child"> Using MM-Sync</mm-list-item>
-				<mm-list-item id="data_comps_creating_adapters" value="article_data_comps_creating_adapters.html" class="child">Creating Adapters</mm-list-item>
+				<mm-list-item id="data_comps_intro" value="article_data_comps_intro.html">Introduction to Data Components</mm-list-item>
+				<mm-list-item id="data_comps_using_ajax" value="article_data_comps_using_ajax.html" class="child"> Using mm-ajax</mm-list-item>
+				<mm-list-item id="data_comps_using_sync" value="article_data_comps_using_sync.html" class="child"> Using mm-sync</mm-list-item>
 				<mm-list-item id="grid_intro" value="article_grid_intro.html">Introduction to mm-grid</mm-list-item>
-				<mm-list-item id="grid_config" value="article_grid_config.html" class="child">Configuring mm-grid</mm-list-item>
-				<mm-list-item id="grid_data_integration" value="article_grid_data_integration.html" class="child">Data Integration with mm-grid</mm-list-item>
+				<mm-list-item id="grid_config" value="article_grid_config.html" class="child"> Configuring mm-grid</mm-list-item>
+				<mm-list-item id="grid_data_integration" value="article_grid_data_integration.html" class="child"> Data Integration with mm-grid</mm-list-item>
+				<mm-list-item id="migration_guide" value="article_migration_guide.html">Migration Guide</mm-list-item>
 			</mm-docs-nav>
 			<mm-docs-nav id="componentsNav">
 				<mm-header size="medium">Components</mm-header>
 				<mm-list-item id="mm-action" value="mm-action.html">mm-action</mm-list-item>
 				<mm-list-item id="mm-ajax" value="mm-ajax.html">mm-ajax</mm-list-item>
+				<mm-list-item id="mm-autocomplete" value="mm-autocomplete.html">mm-autocomplete</mm-list-item>
 				<mm-list-item id="mm-button" value="mm-button.html">mm-button</mm-list-item>
 				<mm-list-item id="mm-calendar" value="mm-calendar.html">mm-calendar</mm-list-item>
 				<mm-list-item id="mm-checkbox" value="mm-checkbox.html">mm-checkbox</mm-list-item>
 				<mm-list-item id="mm-collection" value="mm-collection.html">mm-collection</mm-list-item>
 				<mm-list-item id="mm-datepicker" value="mm-datepicker.html">mm-datepicker</mm-list-item>
+				<mm-list-item id="mm-dialog" value="mm-dialog.html">mm-dialog</mm-list-item>
 				<mm-list-item id="mm-drawer" value="mm-drawer.html">mm-drawer</mm-list-item>
 				<mm-list-item id="mm-dropdown" value="mm-dropdown.html">mm-dropdown</mm-list-item>
 				<mm-list-item id="mm-footer" value="mm-footer.html">mm-footer</mm-list-item>
@@ -57,19 +56,43 @@
 				<mm-list-item id="mm-inline-box" value="mm-inline-box.html">mm-inline-box</mm-list-item>
 				<mm-list-item id="mm-input-mask" value="mm-input-mask.html">mm-input-mask</mm-list-item>
 				<mm-list-item id="mm-input" value="mm-input.html">mm-input</mm-list-item>
+				<mm-list-item id="mm-list-item" value="mm-list-item.html">mm-list-item</mm-list-item>
 				<mm-list-item id="mm-loader" value="mm-loader.html">mm-loader</mm-list-item>
 				<mm-list-item id="mm-localstore" value="mm-localstore.html">mm-localstore</mm-list-item>
+				<mm-list-item id="mm-menu" value="mm-menu.html">mm-menu</mm-list-item>
 				<mm-list-item id="mm-modal" value="mm-modal.html">mm-modal</mm-list-item>
 				<mm-list-item id="mm-model" value="mm-model.html">mm-model</mm-list-item>
 				<mm-list-item id="mm-popover" value="mm-popover.html">mm-popover</mm-list-item>
+				<mm-list-item id="mm-progress-bar" value="mm-progress-bar.html">mm-progress-bar</mm-list-item>
 				<mm-list-item id="mm-pulldown-button" value="mm-pulldown-button.html">mm-pulldown-button</mm-list-item>
 				<mm-list-item id="mm-radio" value="mm-radio.html">mm-radio</mm-list-item>
 				<mm-list-item id="mm-scroll-panel" value="mm-scroll-panel.html">mm-scroll-panel</mm-list-item>
 				<mm-list-item id="mm-spinner" value="mm-spinner.html">mm-spinner</mm-list-item>
 				<mm-list-item id="mm-sync" value="mm-sync.html">mm-sync</mm-list-item>
+				<mm-list-item id="mm-tab" value="mm-tab.html">mm-tab</mm-list-item>
+				<mm-list-item id="mm-tabs" value="mm-tabs.html">mm-tabs</mm-list-item>
 				<mm-list-item id="mm-textarea" value="mm-textarea.html">mm-textarea</mm-list-item>
 				<mm-list-item id="mm-tooltip" value="mm-tooltip.html">mm-tooltip</mm-list-item>
-			</mm-docs-nav>			<article class="layout-article">
+			</mm-docs-nav>
+			<div class="docs-logo">
+				<a href="http://mediamath.github.io/strand/" target="_self" class="strand-logo">
+					<img src="images/strand-logo.svg" />
+				</a>
+				<p class="mini-subhead version">v2.0.0</p>
+			</div>			<footer class="layout-footer">
+				<div class="docs-footer">
+					<div class="footer-logo-box">
+						<div class="powered-by">
+							<p class="mini-subhead">Powered By</p>
+							<a href="https://developer.mediamath.com/" target="_blank" class="powered-logo"></a>
+						</div>
+						<div class="mediamath">
+							<a href="http://mediamath.com/" target="_blank" class="mediamath-logo"></a>
+						</div>
+					</div>
+					<p class="license">&copy;2015 Strand Authors. Code licensed under the <a href="LICENSE.txt" target="_blank">BSD License</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a>.</p>
+				</div>
+			</footer>			<article class="layout-article">
 				<div class="docs-content">
 					<h1>mm-datepicker</h1>
 					<p>A single and dual (range) date/time picker component including numeric and calendar based inputs</p>
@@ -77,39 +100,632 @@
 					<section>
 						<h3>Example HTML Editor</h3>
 						<div class="editor-wrapper">
-							<div id="editor-mm-datepicker" class="editor">&lt;script&gt;
-    window.addEventListener(&quot;polymer-ready&quot;, function() {
-        document.querySelector(&quot;#t&quot;).open = function() {
-        	this.$.dp.open();
-    	};
-    });
-&lt;/script&gt;
-&lt;template is=&quot;auto-binding&quot; id=&quot;t&quot;&gt;
-	&lt;mm-button id=&quot;btn&quot; on-tap=&quot;{{open}}&quot;&gt;
-		&lt;label&gt;Select a Date&lt;/label&gt;
-	&lt;/mm-button&gt;
-	&lt;mm-datepicker id=&quot;dp&quot; target=&quot;{{$.btn}}&quot; useTimezone=&quot;false&quot; useRange=&quot;false&quot;&gt;
-	&lt;/mm-datepicker&gt;
-&lt;/template&gt;</div>
+							<div id="editor">&lt;mm-button id=&quot;btn&quot;&gt;
+	&lt;label&gt;Select a Date&lt;/label&gt;
+&lt;/mm-button&gt;
+&lt;mm-datepicker id=&quot;dp&quot; target=&quot;#btn&quot; start-enabled end-enabled use-timezone=&quot;false&quot; use-range=&quot;false&quot;&gt;&lt;/mm-datepicker&gt;
+</div>
 						</div>
 					</section>
 					<section>
 						<h3>Example Output</h3>
-						<div class="content-box example" id="example-mm-datepicker"><script>
-    window.addEventListener("polymer-ready", function() {
-        document.querySelector("#t").open = function() {
-        	this.$.dp.open();
-    	};
-    });
-</script>
-<template is="auto-binding" id="t">
-	<mm-button id="btn" on-tap="{{open}}">
-		<label>Select a Date</label>
-	</mm-button>
-	<mm-datepicker id="dp" target="{{$.btn}}" useTimezone="false" useRange="false">
-	</mm-datepicker>
-</template></div>
+						<div class="content-box example" id="example-mm-datepicker"><mm-button id="btn">
+	<label>Select a Date</label>
+</mm-button>
+<mm-datepicker id="dp" target="#btn" start-enabled end-enabled use-timezone="false" use-range="false"></mm-datepicker>
+</div>
 					</section>
+
+					<section>
+						<h3>Public Properties</h3>
+						<table>
+							<tr>
+								<th>Property</th>
+								<th>Description</th>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">debouncers : </span><span class="italic">String&nbsp;&nbsp;</span><br/>
+									default : <span class="italic">closed</span><br/>
+									options : <span class="italic"><span class="option">opened</span><span class="option">closed</span></span><br/>
+									attribute : <span class="italic">debouncers</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">An array of property-changed events in the format { keys: Array, type: String, callback: Function(key, debouncer) }.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">resetDebouncer : </span><span class="italic">Boolean&nbsp;(optional)&nbsp;</span><br/>
+									default : <span class="italic">closed</span><br/>
+									options : <span class="italic"><span class="option">true</span><span class="option">false</span></span><br/>
+									attribute : <span class="italic">N/A</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">When true the semaphore state is reset on each &#39;tick&#39; of the debouncer, so it is only ever triggered when calls occur within the same tick.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">panelOffset : </span><span class="italic">Number&nbsp;(optional)&nbsp;</span><br/>
+									default : <span class="italic">0</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">panel-offset</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">The amount of space, in px, between the panel and associated target.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">boundaryOffset : </span><span class="italic">Number&nbsp;(optional)&nbsp;</span><br/>
+									default : <span class="italic">10</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">boundary-offset</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">The minimum about of space between the panel and the viewport boundary.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">metrics : </span><span class="italic">Object&nbsp;&nbsp;(read-only)</span><br/>
+									default : <span class="italic">none</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">N/A</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">Returns a object containing the metrics of the positionable panel.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">targetMetrics : </span><span class="italic">Object&nbsp;&nbsp;(read-only)</span><br/>
+									default : <span class="italic">none</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">N/A</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">Returns a object containing the metrics of the target element.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">windowMetrics : </span><span class="italic">Object&nbsp;&nbsp;(read-only)</span><br/>
+									default : <span class="italic">none</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">N/A</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">Returns a object containing the metrics of the window.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">depth : </span><span class="italic">Number&nbsp;&nbsp;(read-only)</span><br/>
+									default : <span class="italic">0</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">N/A</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">Returns the z-index depth of the element.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">stackType : </span><span class="italic">String&nbsp;&nbsp;</span><br/>
+									default : <span class="italic">ui</span><br/>
+									options : <span class="italic"><span class="option">ui</span><span class="option">modal</span><span class="option">tooltip</span></span><br/>
+									attribute : <span class="italic">stack-type</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">Sets or returns the stacking type for the element. Stacking types are &#39;ui&#39; which starts at an index of 10000, &#39;modal&#39; which starts at index 20000, and &#39;tooltip&#39; which starts at index 30000.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">toggleTrigger : </span><span class="italic">Object or String&nbsp;&nbsp;</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">toggle-trigger</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">An HTMLElement which, when clicked, toggles the component&#39;s visual state. A selector may also be passed as a String.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">state : </span><span class="italic">String&nbsp;&nbsp;</span><br/>
+									default : <span class="italic">closed</span><br/>
+									options : <span class="italic"><span class="option">opened</span><span class="option">closed</span></span><br/>
+									attribute : <span class="italic">state</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">Sets the visual state of the element.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">isClosed : </span><span class="italic">Boolean&nbsp;&nbsp;</span><br/>
+									default : <span class="italic">true</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">N/A</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">Returns a boolean corresponding to the visual state of the element.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">STATE_CLOSED : </span><span class="italic">String&nbsp;&nbsp;(read-only)</span><br/>
+									default : <span class="italic">opened</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">N/A</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">The value of the state property when the element is closed</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">STATE_OPENED : </span><span class="italic">String&nbsp;&nbsp;(read-only)</span><br/>
+									default : <span class="italic">opened</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">N/A</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">The value of the state property when the element is opened</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">useTimezone : </span><span class="italic">Boolean&nbsp;(optional)&nbsp;</span><br/>
+									default : <span class="italic">true</span><br/>
+									options : <span class="italic"><span class="option">true</span><span class="option">false</span></span><br/>
+									attribute : <span class="italic">use-timezone</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">When set to true, instructs the component to display a timezone dropdown. Requires configuration data for timezones (see: timezones).</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">useRange : </span><span class="italic">Boolean&nbsp;(optional)&nbsp;</span><br/>
+									default : <span class="italic">true</span><br/>
+									options : <span class="italic"><span class="option">true</span><span class="option">false</span></span><br/>
+									attribute : <span class="italic">use-range</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">When set to true, instructs the component to display a date range dropdown. Requires configuration data range presets (see: rangePresets).</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">useTime : </span><span class="italic">Boolean&nbsp;(optional)&nbsp;</span><br/>
+									default : <span class="italic">true</span><br/>
+									options : <span class="italic"><span class="option">true</span><span class="option">false</span></span><br/>
+									attribute : <span class="italic">use-time</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">When set to true, instructs the component to display inputs for time selection.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">useCommit : </span><span class="italic">Boolean&nbsp;(optional)&nbsp;</span><br/>
+									default : <span class="italic">true</span><br/>
+									options : <span class="italic"><span class="option">true</span><span class="option">false</span></span><br/>
+									attribute : <span class="italic">use-commit</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">When set to true, instructs the component to display a footer bar which contains &#39;save&#39; and &#39;close&#39; buttons. Requires that the user click &#39;save&#39; to persist the selection for start and end dates (see: &#39;start&#39; and &#39;end&#39;).</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">useDuration : </span><span class="italic">boolean&nbsp;(optional)&nbsp;</span><br/>
+									default : <span class="italic">true</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">use-duration</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">Shows an estimated duration of time between selected start and end dates</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">resetOnClose : </span><span class="italic">Boolean&nbsp;(optional)&nbsp;</span><br/>
+									default : <span class="italic">true</span><br/>
+									options : <span class="italic"><span class="option">true</span><span class="option">false</span></span><br/>
+									attribute : <span class="italic">reset-on-close</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">When set to true, instructs the component reset when closed. Dependant upon the setting for useCommit, requires that the user click &#39;save&#39; or the component will be reset to default values when closed.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">dual : </span><span class="italic">Boolean&nbsp;(optional)&nbsp;</span><br/>
+									default : <span class="italic">true</span><br/>
+									options : <span class="italic"><span class="option">true</span><span class="option">false</span></span><br/>
+									attribute : <span class="italic">dual</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">When set to true, instructs the component to display a start and end calendar panel.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">dateFormat : </span><span class="italic">String&nbsp;(optional)&nbsp;</span><br/>
+									default : <span class="italic">MM/DD/YYYY</span><br/>
+									options : <span class="italic"><span class="option">MM/DD/YYYY</span><span class="option">DD/MM/YYYY</span></span><br/>
+									attribute : <span class="italic">date-format</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">The moment.js format string used for date formatting. Please note that support for additional formats would require the internal input mask configuration to be edited (see: mm-input-mask).</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">timeFormat : </span><span class="italic">String&nbsp;(optional)&nbsp;</span><br/>
+									default : <span class="italic">hh:mm a</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">time-format</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">The moment.js format string used for time formatting. Please note that mm-datepicker currently only supports 12 hour time.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">timeOnlyFormat : </span><span class="italic">String&nbsp;&nbsp;</span><br/>
+									default : <span class="italic">none</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">N/A</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">Returns the moment.js 12 hour time format without meridian value.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">rangeValue : </span><span class="italic">string&nbsp;(optional)&nbsp;</span><br/>
+									default : <span class="italic">none</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">N/A</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">Returns the currently selected range value, as defined in range presets (see: rangePresets).</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">rangePresets : </span><span class="italic">Array&nbsp;(optional)&nbsp;</span><br/>
+									default : <span class="italic">none</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">N/A</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">Configuration data used to populate the range pressets dropdown. Requires an array of objects which should contain a name, start, and end property. The &#39;name&#39; property sets the dropdown item&#39;s label. The &#39;start&#39; and &#39;end&#39; properties require JS Date objects. The supplied &#39;start&#39; and &#39;end&#39; dates will set the mm-datepicker&#39;s date range.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">rangeDescription : </span><span class="italic">String&nbsp;(optional)&nbsp;</span><br/>
+									default : <span class="italic">Select a Predefined Date Range</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">range-description</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">The placeholder string used to populate the range preset dropdown prior to selection.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">timezoneDescription : </span><span class="italic">string&nbsp;&nbsp;</span><br/>
+									default : <span class="italic">Select a Timezone</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">timezone-description</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">The placeholder string used to populate the timezone dropdown prior to selection.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">timezones : </span><span class="italic">Array&nbsp;(optional)&nbsp;</span><br/>
+									default : <span class="italic">none</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">N/A</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">Configuration data used to populate the timezone dropdown. Requires an array of objects which should contain a name and value property. The &#39;name&#39; property sets the dropdown item&#39;s label. The &#39;value&#39; property sets the mm-datepicker&#39;s timezone.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">start : </span><span class="italic">Date&nbsp;&nbsp;</span><br/>
+									default : <span class="italic">none</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">N/A</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">The selected start date. In a dual configuration, this is the selected start date. In single configuration, this will be the only date available.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">startEnabled : </span><span class="italic">Boolean&nbsp;(optional)&nbsp;</span><br/>
+									default : <span class="italic">true</span><br/>
+									options : <span class="italic"><span class="option">true</span><span class="option">false</span></span><br/>
+									attribute : <span class="italic">start-enabled</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">The default value for the start enabled checkbox which appears when startEnabledLabel is specified (see: startEnabledLabel).</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">startUserEnabled : </span><span class="italic">Boolean&nbsp;(optional)&nbsp;</span><br/>
+									default : <span class="italic">true</span><br/>
+									options : <span class="italic"><span class="option">true</span><span class="option">false</span></span><br/>
+									attribute : <span class="italic">start-user-enabled</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">If true, will display a start enabled checkbox, allowing the user to control the start enabled checkbox state.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">allowedStart : </span><span class="italic">Date&nbsp;(optional)&nbsp;</span><br/>
+									default : <span class="italic">none</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">N/A</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">If set, does not allow selection of a date prior to the specified value.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">startLabel : </span><span class="italic">String&nbsp;(optional)&nbsp;</span><br/>
+									default : <span class="italic">Start</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">start-label</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">The label text for the blue header which appears in the top left section of the mm-datepicker.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">startEnabledLabel : </span><span class="italic">String&nbsp;(optional)&nbsp;</span><br/>
+									default : <span class="italic">none</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">start-enabled-label</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">If set, instructs the component to display a start enabled checkbox. Typically used when the mm-datepicker needs to be constrained to a particular start date. This also the text which will be displayed next to the checkbox.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">startDate : </span><span class="italic">String&nbsp;(optional)&nbsp;</span><br/>
+									default : <span class="italic">none</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">start-date</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">A string in the specified dateFormat (see: dateFormat) used to set the mm-datepicker&#39;s default start date.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">startTime : </span><span class="italic">Date&nbsp;&nbsp;</span><br/>
+									default : <span class="italic">12:00</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">N/A</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">A date object representing the desired default start time, used to set the time input field.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">startTimePeriod : </span><span class="italic">String&nbsp;&nbsp;</span><br/>
+									default : <span class="italic">am</span><br/>
+									options : <span class="italic"><span class="option">am</span><span class="option">pm</span></span><br/>
+									attribute : <span class="italic">N/A</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">Sets the value of the meridian dropdown located next to the start time input field.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">end : </span><span class="italic">Date&nbsp;&nbsp;</span><br/>
+									default : <span class="italic">none</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">N/A</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">The selected end date. In a dual configuration, this is the selected end date. In single configuration, this will be the only date available.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">endEnabled : </span><span class="italic">Boolean&nbsp;(optional)&nbsp;</span><br/>
+									default : <span class="italic">true</span><br/>
+									options : <span class="italic"><span class="option">true</span><span class="option">false</span></span><br/>
+									attribute : <span class="italic">start-enabled</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">The default value for the end enabled checkbox which appears when endEnabledLabel is specified (see: endEnabledLabel).</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">endUserEnabled : </span><span class="italic">Boolean&nbsp;(optional)&nbsp;</span><br/>
+									default : <span class="italic">true</span><br/>
+									options : <span class="italic"><span class="option">true</span><span class="option">false</span></span><br/>
+									attribute : <span class="italic">end-user-enabled</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">If true, will display a end enabled checkbox, allowing the user to control the end enabled checkbox state.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">allowedEnd : </span><span class="italic">Date&nbsp;(optional)&nbsp;</span><br/>
+									default : <span class="italic">none</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">N/A</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">If set, does not allow selection of a date after to the specified value.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">endLabel : </span><span class="italic">String&nbsp;(optional)&nbsp;</span><br/>
+									default : <span class="italic">End</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">end-label</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">The label text for the blue header which appears in the top right section of the mm-datepicker.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">endEnabledLabel : </span><span class="italic">String&nbsp;(optional)&nbsp;</span><br/>
+									default : <span class="italic">none</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">end-enabled-label</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">If set, instructs the component to display a end enabled checkbox. Typically used when the mm-datepicker needs to be constrained to a particular end date. This also the text which will be displayed next to the checkbox.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">endDate : </span><span class="italic">String&nbsp;(optional)&nbsp;</span><br/>
+									default : <span class="italic">none</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">end-date</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">A string in the specified dateFormat (see: dateFormat) used to set the mm-datepicker&#39;s default end date.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">endTime : </span><span class="italic">Date&nbsp;&nbsp;</span><br/>
+									default : <span class="italic">11:59</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">N/A</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">A date object representing the desired default end time, used to set the time input field.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">endTimePeriod : </span><span class="italic">String&nbsp;&nbsp;</span><br/>
+									default : <span class="italic">am</span><br/>
+									options : <span class="italic"><span class="option">am</span><span class="option">pm</span></span><br/>
+									attribute : <span class="italic">N/A</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">Sets the value of the meridian dropdown located next to the end time input field.</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">timezone : </span><span class="italic">String&nbsp;&nbsp;</span><br/>
+									default : <span class="italic">none</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">N/A</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">Returns a string representing the selected timezone, as specified in data configuration for timezones (see: timezones)</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">closeLabel : </span><span class="italic">string&nbsp;&nbsp;</span><br/>
+									default : <span class="italic">Close</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">closeLabel</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">A string used for text of &#39;close&#39; link in footer</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">saveLabel : </span><span class="italic">string&nbsp;&nbsp;</span><br/>
+									default : <span class="italic">Save</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">saveLabel</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">A string used for text of &#39;save&#39; button in footer</span>
+								</td>
+							</tr>
+						</table>
+					</section>
+
+					<!--
 					<section>
 						<h3>Attributes</h3>
 						<table>
@@ -119,35 +735,147 @@
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">useTimeZone : </span>boolean (Optional)
-									<span class="desc italic">Default value: true</span>
-									<span class="desc">Enables timezone dropdown when true (requires external tz data)</span>
+									<span class="bold">debouncers : </span>String
+									<span class="desc italic">Default value: closed</span>
+									<span class="desc">An array of property-changed events in the format { keys: Array, type: String, callback: Function(key, debouncer) }.</span>
+								</td>
+								<td><span class="option">'opened'</span><span class="option">'closed'</span></td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">resetDebouncer : </span>Boolean (Optional)
+									<span class="desc italic">Default value: closed</span>
+									<span class="desc">When true the semaphore state is reset on each &#39;tick&#39; of the debouncer, so it is only ever triggered when calls occur within the same tick.</span>
+								</td>
+								<td><span class="option">'true'</span><span class="option">'false'</span></td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">panelOffset : </span>Number (Optional)
+									<span class="desc italic">Default value: 0</span>
+									<span class="desc">The amount of space, in px, between the panel and associated target.</span>
 								</td>
 								<td>none</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">useRange : </span>boolean (Optional)
-									<span class="desc italic">Default value: true</span>
-									<span class="desc">Enables date range dropdown for preselected ranges</span>
+									<span class="bold">boundaryOffset : </span>Number (Optional)
+									<span class="desc italic">Default value: 10</span>
+									<span class="desc">The minimum about of space between the panel and the viewport boundary.</span>
 								</td>
 								<td>none</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">useTime : </span>boolean (Optional)
-									<span class="desc italic">Default value: true</span>
-									<span class="desc">Enables input boxes for time selection</span>
+									<span class="bold">metrics : </span>Object
+									<span class="desc italic">Default value: none</span>
+									<span class="desc">Returns a object containing the metrics of the positionable panel.</span>
 								</td>
 								<td>none</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">useCommit : </span>boolean (Optional)
-									<span class="desc italic">Default value: true</span>
-									<span class="desc">Shows a footer which contains save/close buttons. Without pressing save the data is not persisted to the start/end binds</span>
+									<span class="bold">targetMetrics : </span>Object
+									<span class="desc italic">Default value: none</span>
+									<span class="desc">Returns a object containing the metrics of the target element.</span>
 								</td>
 								<td>none</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">windowMetrics : </span>Object
+									<span class="desc italic">Default value: none</span>
+									<span class="desc">Returns a object containing the metrics of the window.</span>
+								</td>
+								<td>none</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">depth : </span>Number
+									<span class="desc italic">Default value: 0</span>
+									<span class="desc">Returns the z-index depth of the element.</span>
+								</td>
+								<td>none</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">stackType : </span>String
+									<span class="desc italic">Default value: ui</span>
+									<span class="desc">Sets or returns the stacking type for the element. Stacking types are &#39;ui&#39; which starts at an index of 10000, &#39;modal&#39; which starts at index 20000, and &#39;tooltip&#39; which starts at index 30000.</span>
+								</td>
+								<td><span class="option">'ui'</span><span class="option">'modal'</span><span class="option">'tooltip'</span></td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">toggleTrigger : </span>Object or String
+									
+									<span class="desc">An HTMLElement which, when clicked, toggles the component&#39;s visual state. A selector may also be passed as a String.</span>
+								</td>
+								<td>none</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">state : </span>String
+									<span class="desc italic">Default value: closed</span>
+									<span class="desc">Sets the visual state of the element.</span>
+								</td>
+								<td><span class="option">'opened'</span><span class="option">'closed'</span></td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">isClosed : </span>Boolean
+									<span class="desc italic">Default value: true</span>
+									<span class="desc">Returns a boolean corresponding to the visual state of the element.</span>
+								</td>
+								<td>none</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">STATE_CLOSED : </span>String
+									<span class="desc italic">Default value: opened</span>
+									<span class="desc">The value of the state property when the element is closed</span>
+								</td>
+								<td>none</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">STATE_OPENED : </span>String
+									<span class="desc italic">Default value: opened</span>
+									<span class="desc">The value of the state property when the element is opened</span>
+								</td>
+								<td>none</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">useTimezone : </span>Boolean (Optional)
+									<span class="desc italic">Default value: true</span>
+									<span class="desc">When set to true, instructs the component to display a timezone dropdown. Requires configuration data for timezones (see: timezones).</span>
+								</td>
+								<td><span class="option">'true'</span><span class="option">'false'</span></td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">useRange : </span>Boolean (Optional)
+									<span class="desc italic">Default value: true</span>
+									<span class="desc">When set to true, instructs the component to display a date range dropdown. Requires configuration data range presets (see: rangePresets).</span>
+								</td>
+								<td><span class="option">'true'</span><span class="option">'false'</span></td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">useTime : </span>Boolean (Optional)
+									<span class="desc italic">Default value: true</span>
+									<span class="desc">When set to true, instructs the component to display inputs for time selection.</span>
+								</td>
+								<td><span class="option">'true'</span><span class="option">'false'</span></td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">useCommit : </span>Boolean (Optional)
+									<span class="desc italic">Default value: true</span>
+									<span class="desc">When set to true, instructs the component to display a footer bar which contains &#39;save&#39; and &#39;close&#39; buttons. Requires that the user click &#39;save&#39; to persist the selection for start and end dates (see: &#39;start&#39; and &#39;end&#39;).</span>
+								</td>
+								<td><span class="option">'true'</span><span class="option">'false'</span></td>
 							</tr>
 							<tr>
 								<td>
@@ -159,120 +887,65 @@
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">resetOnClose : </span>boolean (Optional)
+									<span class="bold">resetOnClose : </span>Boolean (Optional)
 									<span class="desc italic">Default value: true</span>
-									<span class="desc">When useCommit is true and resetOnClose is true, the picker will be reset to default values when closed if a user does not press the save button</span>
+									<span class="desc">When set to true, instructs the component reset when closed. Dependant upon the setting for useCommit, requires that the user click &#39;save&#39; or the component will be reset to default values when closed.</span>
 								</td>
-								<td>none</td>
+								<td><span class="option">'true'</span><span class="option">'false'</span></td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">dual : </span>boolean (Optional)
+									<span class="bold">dual : </span>Boolean (Optional)
 									<span class="desc italic">Default value: true</span>
-									<span class="desc">When true, the datepicker shows a start and end date panel for ranges</span>
+									<span class="desc">When set to true, instructs the component to display a start and end calendar panel.</span>
 								</td>
-								<td>none</td>
+								<td><span class="option">'true'</span><span class="option">'false'</span></td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">dateFormat : </span>string (Optional)
+									<span class="bold">dateFormat : </span>String (Optional)
 									<span class="desc italic">Default value: MM/DD/YYYY</span>
-									<span class="desc">moment.js format string used for date formatting--note that the input mask needs to be edited independently for format changes</span>
+									<span class="desc">The moment.js format string used for date formatting. Please note that support for additional formats would require the internal input mask configuration to be edited (see: mm-input-mask).</span>
+								</td>
+								<td><span class="option">'MM/DD/YYYY'</span><span class="option">'DD/MM/YYYY'</span></td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">timeFormat : </span>String (Optional)
+									<span class="desc italic">Default value: hh:mm a</span>
+									<span class="desc">The moment.js format string used for time formatting. Please note that mm-datepicker currently only supports 12 hour time.</span>
 								</td>
 								<td>none</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">timeFormat : </span>string (Optional)
-									
-									<span class="desc">moment.js format string used for time formatting--note that markup currently only supports 12 hour time with a fixed dropdown.</span>
-								</td>
-								<td>none</td>
-							</tr>
-						</table>
-					</section>
-					<section>
-						<h3>Public Methods</h3>
-						<table>
-							<tr>
-								<th>Method</th>
-								<th>Arguements</th>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">reset</span>(<span><span class="option">start</span><span class="option">end</span></span>)
-									<span class="desc">Resets the selected date either to the start/end value or to the values specified in arguments</span>
-								</td>
-								<td>
-									<span class="arg">
-										<span class="bold">start</span> : Date (Optional)
-										<span class="desc italic">Default value: null</span>
-										<span class="desc">A date object representing the start date (and time) to reset the picker instance to.</span>
-									</span>
-									<span class="arg">
-										<span class="bold">end</span> : Date (Optional)
-										<span class="desc italic">Default value: null</span>
-										<span class="desc">A date object representing the end date (and time) to reset the picker instance to.</span>
-									</span>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">open</span>(<span></span>)
-									<span class="desc">Shows the datepicker instance</span>
-								</td>
-								<td>
-									none
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">close</span>(<span></span>)
-									<span class="desc">Closes the datepicker instance</span>
-								</td>
-								<td>
-									none
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">save</span>(<span></span>)
-									<span class="desc">Behaves simliarly to close, excecpt that any pending values are commited (when </span>
-								</td>
-								<td>
-									none
-								</td>
-							</tr>
-						</table>
-					</section>
-					<section>
-						<h3>Public Properties</h3>
-						<table>
-							<tr>
-								<th>Properties</th>								
-								<th>Options</th>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">rangeValue : </span>string
-									
-									<span class="desc">The currently selected range value for preset ranges</span>
+									<span class="bold">timeOnlyFormat : </span>String
+									<span class="desc italic">Default value: none</span>
+									<span class="desc">Returns the moment.js 12 hour time format without meridian value.</span>
 								</td>
 								<td>none</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">rangePresets : </span>Array
-									<span class="desc italic">Default value: null</span>
-									<span class="desc">An array of objects which should contain a name, start and end property. Name is a string representing the preset&#39;s label. start and end should be JS Date objects that specify a valid start and end range to be selected.</span>
+									<span class="bold">rangeValue : </span>string (Optional)
+									<span class="desc italic">Default value: none</span>
+									<span class="desc">Returns the currently selected range value, as defined in range presets (see: rangePresets).</span>
 								</td>
 								<td>none</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">rangeDescription : </span>string
+									<span class="bold">rangePresets : </span>Array (Optional)
+									<span class="desc italic">Default value: none</span>
+									<span class="desc">Configuration data used to populate the range pressets dropdown. Requires an array of objects which should contain a name, start, and end property. The &#39;name&#39; property sets the dropdown item&#39;s label. The &#39;start&#39; and &#39;end&#39; properties require JS Date objects. The supplied &#39;start&#39; and &#39;end&#39; dates will set the mm-datepicker&#39;s date range.</span>
+								</td>
+								<td>none</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">rangeDescription : </span>String (Optional)
 									<span class="desc italic">Default value: Select a Predefined Date Range</span>
-									<span class="desc">A string used for the range dropdown&#39;s default text</span>
+									<span class="desc">The placeholder string used to populate the range preset dropdown prior to selection.</span>
 								</td>
 								<td>none</td>
 							</tr>
@@ -280,63 +953,71 @@
 								<td>
 									<span class="bold">timezoneDescription : </span>string
 									<span class="desc italic">Default value: Select a Timezone</span>
-									<span class="desc">A string used for the timezone dropdown&#39;s default text</span>
+									<span class="desc">The placeholder string used to populate the timezone dropdown prior to selection.</span>
 								</td>
 								<td>none</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">timezones : </span>Array
-									
-									<span class="desc">An array of objects each with a label and value property. Label is displayed in the dropdown and when present value is used for the timezone property exposed on the component.</span>
+									<span class="bold">timezones : </span>Array (Optional)
+									<span class="desc italic">Default value: none</span>
+									<span class="desc">Configuration data used to populate the timezone dropdown. Requires an array of objects which should contain a name and value property. The &#39;name&#39; property sets the dropdown item&#39;s label. The &#39;value&#39; property sets the mm-datepicker&#39;s timezone.</span>
 								</td>
 								<td>none</td>
 							</tr>
 							<tr>
 								<td>
 									<span class="bold">start : </span>Date
-									<span class="desc italic">Default value: null</span>
-									<span class="desc">In dual configuration this is the selected start date. In single configuration this is the only date available.</span>
+									<span class="desc italic">Default value: none</span>
+									<span class="desc">The selected start date. In a dual configuration, this is the selected start date. In single configuration, this will be the only date available.</span>
 								</td>
 								<td>none</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">startEnabled : </span>boolean
-									
-									<span class="desc">Default value for the enable/disable checkbox which appears when startEnabledLabel is specified</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">startUserEnableable : </span>boolean
+									<span class="bold">startEnabled : </span>Boolean (Optional)
 									<span class="desc italic">Default value: true</span>
-									<span class="desc">Determines if the user is able to control the start enabled checkbox state.</span>
+									<span class="desc">The default value for the start enabled checkbox which appears when startEnabledLabel is specified (see: startEnabledLabel).</span>
+								</td>
+								<td><span class="option">'true'</span><span class="option">'false'</span></td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">startUserEnabled : </span>Boolean (Optional)
+									<span class="desc italic">Default value: true</span>
+									<span class="desc">If true, will display a start enabled checkbox, allowing the user to control the start enabled checkbox state.</span>
+								</td>
+								<td><span class="option">'true'</span><span class="option">'false'</span></td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">allowedStart : </span>Date (Optional)
+									<span class="desc italic">Default value: none</span>
+									<span class="desc">If set, does not allow selection of a date prior to the specified value.</span>
 								</td>
 								<td>none</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">startEnabledLabel : </span>string
-									<span class="desc italic">Default value: null</span>
-									<span class="desc">A label used for the start checkbox. Typically this is used for scenarios where there is a &#39;parent&#39; date that the picker must constrain to</span>
+									<span class="bold">startLabel : </span>String (Optional)
+									<span class="desc italic">Default value: Start</span>
+									<span class="desc">The label text for the blue header which appears in the top left section of the mm-datepicker.</span>
 								</td>
 								<td>none</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">startLabel : </span>string
-									<span class="desc italic">Default value: start</span>
-									<span class="desc">The label for the lefthand section of the picker when in dual mode. Typically this is the start date.</span>
+									<span class="bold">startEnabledLabel : </span>String (Optional)
+									<span class="desc italic">Default value: none</span>
+									<span class="desc">If set, instructs the component to display a start enabled checkbox. Typically used when the mm-datepicker needs to be constrained to a particular start date. This also the text which will be displayed next to the checkbox.</span>
 								</td>
 								<td>none</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">startDate : </span>string
-									<span class="desc italic">Default value: null</span>
-									<span class="desc">A string in the dateformat used for the default</span>
+									<span class="bold">startDate : </span>String (Optional)
+									<span class="desc italic">Default value: none</span>
+									<span class="desc">A string in the specified dateFormat (see: dateFormat) used to set the mm-datepicker&#39;s default start date.</span>
 								</td>
 								<td>none</td>
 							</tr>
@@ -344,79 +1025,95 @@
 								<td>
 									<span class="bold">startTime : </span>Date
 									<span class="desc italic">Default value: 12:00</span>
-									<span class="desc">A date object representing the default time to use in the time input.</span>
+									<span class="desc">A date object representing the desired default start time, used to set the time input field.</span>
 								</td>
 								<td>none</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">startTimePeriod : </span>string
+									<span class="bold">startTimePeriod : </span>String
 									<span class="desc italic">Default value: am</span>
-									<span class="desc">The meridian value to default the meridian dropdown to</span>
+									<span class="desc">Sets the value of the meridian dropdown located next to the start time input field.</span>
 								</td>
-								<td>none</td>
+								<td><span class="option">'am'</span><span class="option">'pm'</span></td>
 							</tr>
 							<tr>
 								<td>
 									<span class="bold">end : </span>Date
-									<span class="desc italic">Default value: null</span>
-									<span class="desc">In dual configuration this is the selected end date. In single configuration this is the only date available.</span>
+									<span class="desc italic">Default value: none</span>
+									<span class="desc">The selected end date. In a dual configuration, this is the selected end date. In single configuration, this will be the only date available.</span>
 								</td>
 								<td>none</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">endEnabled : </span>boolean
-									
-									<span class="desc">Default value for the enable/disable checkbox which appears when endEnabledLabel is specified</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">endUserEnabled : </span>boolean
+									<span class="bold">endEnabled : </span>Boolean (Optional)
 									<span class="desc italic">Default value: true</span>
-									<span class="desc">Determines if the user is able to control the end enabled checkbox state.</span>
+									<span class="desc">The default value for the end enabled checkbox which appears when endEnabledLabel is specified (see: endEnabledLabel).</span>
+								</td>
+								<td><span class="option">'true'</span><span class="option">'false'</span></td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">endUserEnabled : </span>Boolean (Optional)
+									<span class="desc italic">Default value: true</span>
+									<span class="desc">If true, will display a end enabled checkbox, allowing the user to control the end enabled checkbox state.</span>
+								</td>
+								<td><span class="option">'true'</span><span class="option">'false'</span></td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">allowedEnd : </span>Date (Optional)
+									<span class="desc italic">Default value: none</span>
+									<span class="desc">If set, does not allow selection of a date after to the specified value.</span>
 								</td>
 								<td>none</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">endEnabledLabel : </span>string
-									<span class="desc italic">Default value: null</span>
-									<span class="desc">A label used for the end checkbox. Typically this is used for scenarios where there is a &#39;parent&#39; date that the picker must constrain to</span>
+									<span class="bold">endLabel : </span>String (Optional)
+									<span class="desc italic">Default value: End</span>
+									<span class="desc">The label text for the blue header which appears in the top right section of the mm-datepicker.</span>
 								</td>
 								<td>none</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">endLabel : </span>string
-									<span class="desc italic">Default value: end</span>
-									<span class="desc">The label for the lefthand section of the picker when in dual mode. Typically this is the end date.</span>
+									<span class="bold">endEnabledLabel : </span>String (Optional)
+									<span class="desc italic">Default value: none</span>
+									<span class="desc">If set, instructs the component to display a end enabled checkbox. Typically used when the mm-datepicker needs to be constrained to a particular end date. This also the text which will be displayed next to the checkbox.</span>
 								</td>
 								<td>none</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">endDate : </span>string
-									<span class="desc italic">Default value: null</span>
-									<span class="desc">A string in the dateformat used for the default</span>
+									<span class="bold">endDate : </span>String (Optional)
+									<span class="desc italic">Default value: none</span>
+									<span class="desc">A string in the specified dateFormat (see: dateFormat) used to set the mm-datepicker&#39;s default end date.</span>
 								</td>
 								<td>none</td>
 							</tr>
 							<tr>
 								<td>
 									<span class="bold">endTime : </span>Date
-									<span class="desc italic">Default value: 12:00</span>
-									<span class="desc">A date object representing the default time to use in the time input.</span>
+									<span class="desc italic">Default value: 11:59</span>
+									<span class="desc">A date object representing the desired default end time, used to set the time input field.</span>
 								</td>
 								<td>none</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">endTimePeriod : </span>string
+									<span class="bold">endTimePeriod : </span>String
 									<span class="desc italic">Default value: am</span>
-									<span class="desc">The meridian value to default the meridian dropdown to</span>
+									<span class="desc">Sets the value of the meridian dropdown located next to the end time input field.</span>
+								</td>
+								<td><span class="option">'am'</span><span class="option">'pm'</span></td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">timezone : </span>String
+									<span class="desc italic">Default value: none</span>
+									<span class="desc">Returns a string representing the selected timezone, as specified in data configuration for timezones (see: timezones)</span>
 								</td>
 								<td>none</td>
 							</tr>
@@ -438,6 +1135,129 @@
 							</tr>
 						</table>
 					</section>
+					-->
+
+					<section>
+						<h3>Public Methods</h3>
+						<table>
+							<tr>
+								<th>Method</th>
+								<th>Arguements</th>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">deserialize</span>(<span></span>)<br/>
+									<span class="desc">Overrides Polymer.Base.deserialize method to convert string values of &#39;true&#39; or &#39;false&#39; to Boolean values.</span>
+								</td>
+								<td>
+									none
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">resize</span>(<span></span>)<br/>
+									<span class="desc">Abstract method, called when the widow resizes.</span>
+								</td>
+								<td>
+									none
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">scroll</span>(<span></span>)<br/>
+									<span class="desc">Abstract method, called when the widow scrolls.</span>
+								</td>
+								<td>
+									none
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">update</span>(<span></span>)<br/>
+									<span class="desc">Triggers a display update.</span>
+								</td>
+								<td>
+									none
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">moveToTop</span>(<span></span>)<br/>
+									<span class="desc">Instructs the element to move to the top index of it&#39;s stacking type.</span>
+								</td>
+								<td>
+									none
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">open</span>(<span><span class="italic option">silent</span></span>)<br/>
+									<span class="desc">Instructs the component to open.</span>
+								</td>
+								<td>
+									<span class="arg">
+										<span class="bold">silent : </span><span class="italic">String&nbsp;(optional)</span><br/>
+										default : <span class="italic">false</span><br/>
+										<span class="desc">Used to allow or suppress the firing of an &#39;open&#39; event (see &#39;events&#39; for more information).</span>
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">close</span>(<span><span class="italic option">silent</span></span>)<br/>
+									<span class="desc">Instructs the component to close.</span>
+								</td>
+								<td>
+									<span class="arg">
+										<span class="bold">silent : </span><span class="italic">String&nbsp;(optional)</span><br/>
+										default : <span class="italic">false</span><br/>
+										<span class="desc">Used to allow or suppress the firing of a &#39;close&#39; event (see &#39;events&#39; for more information).</span>
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">toggle</span>(<span><span class="italic option">silent</span></span>)<br/>
+									<span class="desc">Toggles the visual state of the component between &#39;opened&#39; and &#39;closed&#39;.</span>
+								</td>
+								<td>
+									<span class="arg">
+										<span class="bold">silent : </span><span class="italic">String&nbsp;(optional)</span><br/>
+										default : <span class="italic">false</span><br/>
+										<span class="desc">Used to allow or suppress the firing of an &#39;open&#39; or &#39;close&#39; event, depending on the component&#39;s current state (see &#39;events&#39; for more information).</span>
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">reset</span>(<span><span class="italic option">start</span><span class="italic option">end</span></span>)<br/>
+									<span class="desc">Resets the selected &#39;start&#39; and &#39;end&#39; dates either to their default values, or to the values specified in arguments.</span>
+								</td>
+								<td>
+									<span class="arg">
+										<span class="bold">start : </span><span class="italic">Date&nbsp;(optional)</span><br/>
+										default : <span class="italic">null</span><br/>
+										<span class="desc">A date object representing the start date (and time) to reset the picker instance to.</span>
+									</span>
+									<span class="arg">
+										<span class="bold">end : </span><span class="italic">Date&nbsp;(optional)</span><br/>
+										default : <span class="italic">null</span><br/>
+										<span class="desc">A date object representing the end date (and time) to reset the picker instance to.</span>
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">save</span>(<span></span>)<br/>
+									<span class="desc">Commits any pending date or date range values selected, and closes the mm-datepicker.</span>
+								</td>
+								<td>
+									none
+								</td>
+							</tr>
+						</table>
+					</section>
+
 					<section>
 						<h3>Events</h3>
 						<table>
@@ -447,18 +1267,20 @@
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">Type</span> : 'opened'</span>
+									<span class="bold">Type</span> : 'open'</span>
 									
 								</td>
 								<td>
+									none
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">Type</span> : 'closed'</span>
+									<span class="bold">Type</span> : 'close'</span>
 									
 								</td>
 								<td>
+									none
 								</td>
 							</tr>
 							<tr>
@@ -468,12 +1290,12 @@
 								</td>
 								<td>
 									<span class="arg">
-										<span class="bold">start</span> : Date
-										<span class="desc">Start date the user has chosen</span>
+										<span class="bold">start</span> : <span class="italic">Date</span><br/>
+										<span class="desc">The start date the user has chosen.</span>
 									</span>
 									<span class="arg">
-										<span class="bold">end</span> : Date
-										<span class="desc">End date the user has chosen</span>
+										<span class="bold">end</span> : <span class="italic">Date</span><br/>
+										<span class="desc">The end date the user has chosen.</span>
 									</span>
 								</td>
 							</tr>
@@ -482,20 +1304,7 @@
 				</div>
 				<div class="layout-push"></div>
 			</article>
-			<footer class="footer">
-				<div class="docs-footer">
-					<div class="footer-logo-box">
-						<div class="powered-by">
-							<p class="mini-subhead">Powered By</p>
-							<a href="https://developer.mediamath.com/" target="_blank" class="powered-logo"></a>
-						</div>
-						<div class="mediamath">
-							<a href="http://mediamath.com/" target="_blank" class="mediamath-logo"></a>
-						</div>
-					</div>
-					<p class="license">&copy;2015 Strand Authors. Code licensed under the <a href="LICENSE.txt" target="_blank">BSD License</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a>.</p>
-				</div>
-			</footer>		</mm-docs-shell>
+		</mm-docs-shell>
 		<script>
 			var name = "mm-datepicker",
 				articlesNav,
@@ -506,16 +1315,17 @@
 				$example,
 				firstRun = true; 
 
-			window.addEventListener("polymer-ready", function(e) {
+			window.addEventListener("WebComponentsReady", function(e) {
+				// console.log("document - WebComponentsReady");
 				initDoc();
 			});
 
 			function initDoc() {
 				if (firstRun) {
-					articlesNav = document.querySelector("#articlesNav");
-					componentsNav = document.querySelector("#componentsNav");
-					docsShell = document.querySelector("#docsShell");
-					navItems = document.querySelectorAll("mm-list-item");
+					articlesNav 	= Polymer.dom(document).querySelector("#articlesNav");
+					componentsNav 	= Polymer.dom(document).querySelector("#componentsNav");
+					docsShell 		= Polymer.dom(document).querySelector("#docsShell");
+					navItems 		= Polymer.dom(document).querySelectorAll("mm-list-item");
 
 					// default expanded:
 					articlesNav.expanded = false;
@@ -530,9 +1340,8 @@
 
 					docsShell.addEventListener("docs-nav-selected", navigateToPage);
 
-					editor = ace.edit("editor-mm-datepicker");
+					editor = ace.edit("editor");
 					editor.setTheme("ace/theme/chrome");
-					editor.session.setUseWrapMode(true);
 					editor.session.setMode("ace/mode/html");
 					editor.getSession().on('change', _.debounce(update, 500));
 
@@ -542,13 +1351,17 @@
 			}
 
 			function update(e) {
+				// console.log("update was called!");
 				$example.empty().html(editor.session.getValue());
-				// hacks to retrigger the scripts in example:
-				window.dispatchEvent(new Event('polymer-ready'));
+				// hack to retrigger the scripts in example:
+				window.dispatchEvent(new Event('WebComponentsReady'));
 			}
 
 			function navigateToPage(e) {
-				window.location = e.detail.value;
+				console.log("navigateToPage: ", e.detail.value);
+				if(e.detail.value) {
+					window.location = e.detail.value;
+				} 
 			}	
 		</script>
 	</body>

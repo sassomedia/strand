@@ -94,40 +94,26 @@
 				</div>
 			</footer>			<article class="layout-article">
 				<div class="docs-content">
-					<h1>mm-radio</h1>
-					<p>A fully-styled radio button.</p>
+					<h1>mm-tabs</h1>
+					<p>A fully-styled component for presenting tabbed content</p>
 					<hr/>
 					<section>
 						<h3>Example HTML Editor</h3>
 						<div class="editor-wrapper">
-							<div id="editor">&lt;mm-radio group=&quot;aces&quot; unresolved&gt;
-	&lt;label&gt;My Label 1&lt;/label&gt;
-&lt;/mm-radio&gt;
-&lt;mm-radio group=&quot;aces&quot; unresolved&gt;
-	&lt;label&gt;My Label 2&lt;/label&gt;
-&lt;/mm-radio&gt;
-&lt;mm-radio group=&quot;aces&quot; unresolved&gt;
-	&lt;label&gt;My Label 3&lt;/label&gt;
-&lt;/mm-radio&gt;
-&lt;mm-radio group=&quot;aces&quot; checked=&quot;true&quot; disabled=&quot;true&quot; unresolved&gt;
-	&lt;label&gt;My Label 4&lt;/label&gt;
-&lt;/mm-radio&gt;</div>
+							<div id="editor">&lt;mm-tabs tab-bar-offset=&quot;15&quot;&gt;
+	&lt;mm-tab tab-label=&quot;First&quot; icon=&quot;info&quot; active&gt;This is the first tab content.&lt;/mm-tab&gt;
+	&lt;mm-tab tab-label=&quot;Second&quot;&gt;This is the second tab content.&lt;/mm-tab&gt;
+	&lt;mm-tab tab-label=&quot;Third&quot;&gt;This is the third tab content.&lt;/mm-tab&gt;
+&lt;/mm-tabs&gt;</div>
 						</div>
 					</section>
 					<section>
 						<h3>Example Output</h3>
-						<div class="content-box example" id="example-mm-radio"><mm-radio group="aces" unresolved>
-	<label>My Label 1</label>
-</mm-radio>
-<mm-radio group="aces" unresolved>
-	<label>My Label 2</label>
-</mm-radio>
-<mm-radio group="aces" unresolved>
-	<label>My Label 3</label>
-</mm-radio>
-<mm-radio group="aces" checked="true" disabled="true" unresolved>
-	<label>My Label 4</label>
-</mm-radio></div>
+						<div class="content-box example" id="example-mm-tabs"><mm-tabs tab-bar-offset="15">
+	<mm-tab tab-label="First" icon="info" active>This is the first tab content.</mm-tab>
+	<mm-tab tab-label="Second">This is the second tab content.</mm-tab>
+	<mm-tab tab-label="Third">This is the third tab content.</mm-tab>
+</mm-tabs></div>
 					</section>
 
 					<section>
@@ -139,50 +125,59 @@
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">group : </span><span class="italic">String&nbsp;(optional)&nbsp;</span><br/>
-									default : <span class="italic">none</span><br/>
+									<span class="bold">selectedIndex : </span><span class="italic">Number&nbsp;&nbsp;</span><br/>
 									options : <span class="italic">none</span><br/>
-									attribute : <span class="italic">group</span><br/>
+									attribute : <span class="italic">N/A</span><br/>
 									reflected to attribute : <span class="italic">no</span>
 								</td>
 								<td>
-									<span class="desc">The name of the group to which the radio button belongs.</span>
+									<span class="desc">The index of the current selected tab. This can be changed to selected a different tab.</span>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">checked : </span><span class="italic">Boolean&nbsp;(optional)&nbsp;</span><br/>
-									default : <span class="italic">false</span><br/>
+									<span class="bold">items : </span><span class="italic">Array&nbsp;&nbsp;(read-only)</span><br/>
 									options : <span class="italic">none</span><br/>
-									attribute : <span class="italic">checked</span><br/>
+									attribute : <span class="italic">N/A</span><br/>
 									reflected to attribute : <span class="italic">no</span>
 								</td>
 								<td>
-									<span class="desc">Checked attribute.</span>
+									<span class="desc">Returns an array of this component&#39;s tabs, in order</span>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">fitparent : </span><span class="italic">Boolean&nbsp;(optional)&nbsp;</span><br/>
-									default : <span class="italic">null</span><br/>
-									options : <span class="italic">none</span><br/>
-									attribute : <span class="italic">fitparent</span><br/>
+									<span class="bold">tabBarPosition : </span><span class="italic">String&nbsp;(optional)&nbsp;</span><br/>
+									default : <span class="italic">top</span><br/>
+									options : <span class="italic"><span class="option">top</span><span class="option">left</span></span><br/>
+									attribute : <span class="italic">tab-bar-position</span><br/>
 									reflected to attribute : <span class="italic">no</span>
 								</td>
 								<td>
-									<span class="desc">Instructs the component to fit to its parent container&#39;s width (percent or pixel width).</span>
+									<span class="desc">The side of the content container to display the tabs</span>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">disabled : </span><span class="italic">Boolean&nbsp;(optional)&nbsp;</span><br/>
-									default : <span class="italic">false</span><br/>
+									<span class="bold">tabBarOffset : </span><span class="italic">Number&nbsp;(optional)&nbsp;</span><br/>
+									default : <span class="italic">20</span><br/>
 									options : <span class="italic">none</span><br/>
-									attribute : <span class="italic">disabled</span><br/>
+									attribute : <span class="italic">tab-bar-offset</span><br/>
 									reflected to attribute : <span class="italic">no</span>
 								</td>
 								<td>
-									<span class="desc">Disable the item</span>
+									<span class="desc">The amount of space, in px, between the first tab and the edge of the container</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">inner : </span><span class="italic">Boolean&nbsp;(optional)&nbsp;</span><br/>
+									options : <span class="italic">none</span><br/>
+									attribute : <span class="italic">inner</span><br/>
+									reflected to attribute : <span class="italic">no</span>
+								</td>
+								<td>
+									<span class="desc">Use the alternate style tabs, for a set of tabs inside another tab</span>
 								</td>
 							</tr>
 						</table>
@@ -198,33 +193,41 @@
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">group : </span>String (Optional)
-									<span class="desc italic">Default value: none</span>
-									<span class="desc">The name of the group to which the radio button belongs.</span>
+									<span class="bold">selectedIndex : </span>Number
+									
+									<span class="desc">The index of the current selected tab. This can be changed to selected a different tab.</span>
 								</td>
 								<td>none</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">checked : </span>Boolean (Optional)
-									<span class="desc italic">Default value: false</span>
-									<span class="desc">Checked attribute.</span>
+									<span class="bold">items : </span>Array
+									
+									<span class="desc">Returns an array of this component&#39;s tabs, in order</span>
 								</td>
 								<td>none</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">fitparent : </span>Boolean (Optional)
-									<span class="desc italic">Default value: null</span>
-									<span class="desc">Instructs the component to fit to its parent container&#39;s width (percent or pixel width).</span>
+									<span class="bold">tabBarPosition : </span>String (Optional)
+									<span class="desc italic">Default value: top</span>
+									<span class="desc">The side of the content container to display the tabs</span>
+								</td>
+								<td><span class="option">'top'</span><span class="option">'left'</span></td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">tabBarOffset : </span>Number (Optional)
+									<span class="desc italic">Default value: 20</span>
+									<span class="desc">The amount of space, in px, between the first tab and the edge of the container</span>
 								</td>
 								<td>none</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">disabled : </span>Boolean (Optional)
-									<span class="desc italic">Default value: false</span>
-									<span class="desc">Disable the item</span>
+									<span class="bold">inner : </span>Boolean (Optional)
+									
+									<span class="desc">Use the alternate style tabs, for a set of tabs inside another tab</span>
 								</td>
 								<td>none</td>
 							</tr>
@@ -232,38 +235,40 @@
 					</section>
 					-->
 
-
 					<section>
-						<h3>Events</h3>
+						<h3>Public Methods</h3>
 						<table>
 							<tr>
-								<th>Event</th>
-								<th>Event Detail</th>
+								<th>Method</th>
+								<th>Arguements</th>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">Type</span> : 'selected'</span>
-									
+									<span class="bold">styleBlock</span>(<span></span>)<br/>
+									<span class="desc">Returns an array of styles to be used in attribute binding.</span>
 								</td>
 								<td>
-									<span class="arg">
-										<span class="bold">checked</span> : <span class="italic">Boolean</span><br/>
-										<span class="desc">The status of this radio button&#39;s selection</span>
-									</span>
-									<span class="arg">
-										<span class="bold">item</span> : <span class="italic">Object</span><br/>
-										<span class="desc">A reference to the item which triggered the event</span>
-									</span>
+									none
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">classBlock</span>(<span></span>)<br/>
+									<span class="desc">Returns an array of classes to be used in attribute binding.</span>
+								</td>
+								<td>
+									none
 								</td>
 							</tr>
 						</table>
 					</section>
+
 				</div>
 				<div class="layout-push"></div>
 			</article>
 		</mm-docs-shell>
 		<script>
-			var name = "mm-radio",
+			var name = "mm-tabs",
 				articlesNav,
 				componentsNav,
 				docsShell,
