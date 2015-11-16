@@ -21,7 +21,7 @@
 		<script language="javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 		<script language="javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
 	</head>	<body unresolved>
-		<mm-docs-shell id="docsShell" version="2.0.0" mobile-header="Strand Docs">
+		<mm-docs-shell id="docsShell" version="2.0.1" mobile-header="Strand Docs">
 			<mm-docs-nav id="articlesNav">
 				<mm-header size="medium">Articles</mm-header>
 				<mm-list-item id="getting_started" value="article_getting_started.html">Getting Started</mm-list-item>
@@ -38,6 +38,7 @@
 				<mm-list-item id="mm-action" value="mm-action.html">mm-action</mm-list-item>
 				<mm-list-item id="mm-ajax" value="mm-ajax.html">mm-ajax</mm-list-item>
 				<mm-list-item id="mm-autocomplete" value="mm-autocomplete.html">mm-autocomplete</mm-list-item>
+				<mm-list-item id="mm-box" value="mm-box.html">mm-box</mm-list-item>
 				<mm-list-item id="mm-button" value="mm-button.html">mm-button</mm-list-item>
 				<mm-list-item id="mm-calendar" value="mm-calendar.html">mm-calendar</mm-list-item>
 				<mm-list-item id="mm-checkbox" value="mm-checkbox.html">mm-checkbox</mm-list-item>
@@ -46,6 +47,7 @@
 				<mm-list-item id="mm-dialog" value="mm-dialog.html">mm-dialog</mm-list-item>
 				<mm-list-item id="mm-drawer" value="mm-drawer.html">mm-drawer</mm-list-item>
 				<mm-list-item id="mm-dropdown" value="mm-dropdown.html">mm-dropdown</mm-list-item>
+				<mm-list-item id="mm-file-upload" value="mm-file-upload.html">mm-file-upload</mm-list-item>
 				<mm-list-item id="mm-footer" value="mm-footer.html">mm-footer</mm-list-item>
 				<mm-list-item id="mm-grid-column" value="mm-grid-column.html">mm-grid-column</mm-list-item>
 				<mm-list-item id="mm-grid-item" value="mm-grid-item.html">mm-grid-item</mm-list-item>
@@ -75,10 +77,10 @@
 				<mm-list-item id="mm-tooltip" value="mm-tooltip.html">mm-tooltip</mm-list-item>
 			</mm-docs-nav>
 			<div class="docs-logo">
-				<a href="http://mediamath.github.io/strand/" target="_self" class="strand-logo">
+				<a class="strand-logo">
 					<img src="images/strand-logo.svg" />
 				</a>
-				<p class="mini-subhead version">v2.0.0</p>
+				<p class="mini-subhead version">v2.0.1</p>
 			</div>			<footer class="layout-footer">
 				<div class="docs-footer">
 					<div class="footer-logo-box">
@@ -259,107 +261,6 @@
 							</tr>
 						</table>
 					</section>
-
-					<!--
-					<section>
-						<h3>Attributes</h3>
-						<table>
-							<tr>
-								<th>Attribute</th>								
-								<th>Options</th>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">contentType : </span>String (Optional)
-									<span class="desc italic">Default value: application/x-www-form-urlencoded</span>
-									<span class="desc">Content type header to send to server</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">method : </span>String (Optional)
-									<span class="desc italic">Default value: GET</span>
-									<span class="desc">http request method to use for XHR call. Note that the component exposes constants for dev usage.</span>
-								</td>
-								<td><span class="option">'GET'</span><span class="option">'POST'</span><span class="option">'PUT'</span><span class="option">'DELETE'</span></td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">auto : </span>Boolean (Optional)
-									<span class="desc italic">Default value: false</span>
-									<span class="desc">when auto is true exec() is called whenever the body changes</span>
-								</td>
-								<td><span class="option">'true'</span><span class="option">'false'</span></td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">body : </span>Object (Optional)
-									
-									<span class="desc">The request body to pass to the server for POST or PUT calls</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">response : </span>Object (or any primitive)
-									
-									<span class="desc">The response from the server</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">withCredentials : </span>Boolean (Optional)
-									<span class="desc italic">Default value: false</span>
-									<span class="desc">Passes the withCredentials param to the XHR needed for some secure CORS scenarios.</span>
-								</td>
-								<td><span class="option">'true'</span><span class="option">'false'</span></td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">timeout : </span>Boolean (Optional)
-									<span class="desc italic">Default value: 10000</span>
-									<span class="desc">XHR timeout in milliseconds</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">concurrency : </span>Number
-									<span class="desc italic">Default value: 4</span>
-									<span class="desc">The request concurrency for the execQueue methods</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">status : </span>String
-									
-									<span class="desc">Readonly XHR object status string</span>
-								</td>
-								<td><span class="option">'true'</span><span class="option">'false'</span></td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">state : </span>Boolean
-									
-									
-								</td>
-								<td><span class="option">'true'</span><span class="option">'false'</span></td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">xhr : </span>Object (Optional)
-									
-									<span class="desc">A reference to the XHR object created for this call if needed</span>
-								</td>
-								<td>none</td>
-							</tr>
-						</table>
-					</section>
-					-->
-
 					<section>
 						<h3>Public Methods</h3>
 						<table>
@@ -619,7 +520,7 @@
 			}
 
 			function navigateToPage(e) {
-				console.log("navigateToPage: ", e.detail.value);
+				// console.log("navigateToPage: ", e.detail.value);
 				if(e.detail.value) {
 					window.location = e.detail.value;
 				} 

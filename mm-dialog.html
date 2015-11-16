@@ -21,7 +21,7 @@
 		<script language="javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 		<script language="javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
 	</head>	<body unresolved>
-		<mm-docs-shell id="docsShell" version="2.0.0" mobile-header="Strand Docs">
+		<mm-docs-shell id="docsShell" version="2.0.1" mobile-header="Strand Docs">
 			<mm-docs-nav id="articlesNav">
 				<mm-header size="medium">Articles</mm-header>
 				<mm-list-item id="getting_started" value="article_getting_started.html">Getting Started</mm-list-item>
@@ -38,6 +38,7 @@
 				<mm-list-item id="mm-action" value="mm-action.html">mm-action</mm-list-item>
 				<mm-list-item id="mm-ajax" value="mm-ajax.html">mm-ajax</mm-list-item>
 				<mm-list-item id="mm-autocomplete" value="mm-autocomplete.html">mm-autocomplete</mm-list-item>
+				<mm-list-item id="mm-box" value="mm-box.html">mm-box</mm-list-item>
 				<mm-list-item id="mm-button" value="mm-button.html">mm-button</mm-list-item>
 				<mm-list-item id="mm-calendar" value="mm-calendar.html">mm-calendar</mm-list-item>
 				<mm-list-item id="mm-checkbox" value="mm-checkbox.html">mm-checkbox</mm-list-item>
@@ -46,6 +47,7 @@
 				<mm-list-item id="mm-dialog" value="mm-dialog.html">mm-dialog</mm-list-item>
 				<mm-list-item id="mm-drawer" value="mm-drawer.html">mm-drawer</mm-list-item>
 				<mm-list-item id="mm-dropdown" value="mm-dropdown.html">mm-dropdown</mm-list-item>
+				<mm-list-item id="mm-file-upload" value="mm-file-upload.html">mm-file-upload</mm-list-item>
 				<mm-list-item id="mm-footer" value="mm-footer.html">mm-footer</mm-list-item>
 				<mm-list-item id="mm-grid-column" value="mm-grid-column.html">mm-grid-column</mm-list-item>
 				<mm-list-item id="mm-grid-item" value="mm-grid-item.html">mm-grid-item</mm-list-item>
@@ -75,10 +77,10 @@
 				<mm-list-item id="mm-tooltip" value="mm-tooltip.html">mm-tooltip</mm-list-item>
 			</mm-docs-nav>
 			<div class="docs-logo">
-				<a href="http://mediamath.github.io/strand/" target="_self" class="strand-logo">
+				<a class="strand-logo">
 					<img src="images/strand-logo.svg" />
 				</a>
-				<p class="mini-subhead version">v2.0.0</p>
+				<p class="mini-subhead version">v2.0.1</p>
 			</div>			<footer class="layout-footer">
 				<div class="docs-footer">
 					<div class="footer-logo-box">
@@ -328,91 +330,6 @@
 							</tr>
 						</table>
 					</section>
-
-					<!--
-					<section>
-						<h3>Attributes</h3>
-						<table>
-							<tr>
-								<th>Attribute</th>								
-								<th>Options</th>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">depth : </span>Number
-									<span class="desc italic">Default value: 0</span>
-									<span class="desc">Returns the z-index depth of the element.</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">stackType : </span>String
-									<span class="desc italic">Default value: ui</span>
-									<span class="desc">Sets or returns the stacking type for the element. Stacking types are &#39;ui&#39; which starts at an index of 10000, &#39;modal&#39; which starts at index 20000, and &#39;tooltip&#39; which starts at index 30000.</span>
-								</td>
-								<td><span class="option">'ui'</span><span class="option">'modal'</span><span class="option">'tooltip'</span></td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">type : </span>String
-									<span class="desc italic">Default value: info</span>
-									<span class="desc">Instructs the component to display a specific icon to denote the message type i.e. - &#39;error&#39; or &#39;warning&#39;.</span>
-								</td>
-								<td><span class="option">'error'</span><span class="option">'info'</span><span class="option">'success'</span><span class="option">'warning'</span></td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">header : </span>String (Optional)
-									
-									<span class="desc">The header text to be displayed in the header of dialog window.</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">width : </span>int (Optional)
-									<span class="desc italic">Default value: 600</span>
-									<span class="desc">Sets the width, in pixels, of the dialog window.</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">hidden : </span>string (Optional)
-									<span class="desc italic">Default value: true</span>
-									<span class="desc">Returns the visible state of the dialog window. Can be used in binding scenarios as an alternative to show or hide the dialog.</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">dismiss : </span>Boolean (Optional)
-									<span class="desc italic">Default value: false</span>
-									<span class="desc">If set, determines whether or not the dialog can be dismissed without user action (see: actions).</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">noscroll : </span>Boolean (Optional)
-									<span class="desc italic">Default value: false</span>
-									<span class="desc">If set, will disable page scrolling while the dialog is displayed.</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">actions : </span>Array (Optional)
-									<span class="desc italic">Default value: label: &#39;OK&#39;, type: &#39;secondary&#39;, callback: function(e,host) { host.hide(); }</span>
-									<span class="desc">An array of objects representing the actions to be displayed in the footer of the dialog. Each object provided should follow the format { label: String, type: String, callback: Function }. The property &#39;label&#39; sets the name of the action. The property &#39;type&#39; (&#39;primary&#39;, &#39;secondary&#39;, or &#39;action&#39;) sets the button type. The property &#39;callback&#39; may take optional arguments for the event object and the mm-dialog node.</span>
-								</td>
-								<td><span class="option">''</span></td>
-							</tr>
-						</table>
-					</section>
-					-->
-
 					<section>
 						<h3>Public Methods</h3>
 						<table>
@@ -507,7 +424,7 @@
 			}
 
 			function navigateToPage(e) {
-				console.log("navigateToPage: ", e.detail.value);
+				// console.log("navigateToPage: ", e.detail.value);
 				if(e.detail.value) {
 					window.location = e.detail.value;
 				} 

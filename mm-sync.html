@@ -21,7 +21,7 @@
 		<script language="javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 		<script language="javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
 	</head>	<body unresolved>
-		<mm-docs-shell id="docsShell" version="2.0.0" mobile-header="Strand Docs">
+		<mm-docs-shell id="docsShell" version="2.0.1" mobile-header="Strand Docs">
 			<mm-docs-nav id="articlesNav">
 				<mm-header size="medium">Articles</mm-header>
 				<mm-list-item id="getting_started" value="article_getting_started.html">Getting Started</mm-list-item>
@@ -38,6 +38,7 @@
 				<mm-list-item id="mm-action" value="mm-action.html">mm-action</mm-list-item>
 				<mm-list-item id="mm-ajax" value="mm-ajax.html">mm-ajax</mm-list-item>
 				<mm-list-item id="mm-autocomplete" value="mm-autocomplete.html">mm-autocomplete</mm-list-item>
+				<mm-list-item id="mm-box" value="mm-box.html">mm-box</mm-list-item>
 				<mm-list-item id="mm-button" value="mm-button.html">mm-button</mm-list-item>
 				<mm-list-item id="mm-calendar" value="mm-calendar.html">mm-calendar</mm-list-item>
 				<mm-list-item id="mm-checkbox" value="mm-checkbox.html">mm-checkbox</mm-list-item>
@@ -46,6 +47,7 @@
 				<mm-list-item id="mm-dialog" value="mm-dialog.html">mm-dialog</mm-list-item>
 				<mm-list-item id="mm-drawer" value="mm-drawer.html">mm-drawer</mm-list-item>
 				<mm-list-item id="mm-dropdown" value="mm-dropdown.html">mm-dropdown</mm-list-item>
+				<mm-list-item id="mm-file-upload" value="mm-file-upload.html">mm-file-upload</mm-list-item>
 				<mm-list-item id="mm-footer" value="mm-footer.html">mm-footer</mm-list-item>
 				<mm-list-item id="mm-grid-column" value="mm-grid-column.html">mm-grid-column</mm-list-item>
 				<mm-list-item id="mm-grid-item" value="mm-grid-item.html">mm-grid-item</mm-list-item>
@@ -75,10 +77,10 @@
 				<mm-list-item id="mm-tooltip" value="mm-tooltip.html">mm-tooltip</mm-list-item>
 			</mm-docs-nav>
 			<div class="docs-logo">
-				<a href="http://mediamath.github.io/strand/" target="_self" class="strand-logo">
+				<a class="strand-logo">
 					<img src="images/strand-logo.svg" />
 				</a>
-				<p class="mini-subhead version">v2.0.0</p>
+				<p class="mini-subhead version">v2.0.1</p>
 			</div>			<footer class="layout-footer">
 				<div class="docs-footer">
 					<div class="footer-logo-box">
@@ -259,107 +261,6 @@
 							</tr>
 						</table>
 					</section>
-
-					<!--
-					<section>
-						<h3>Attributes</h3>
-						<table>
-							<tr>
-								<th>Attribute</th>								
-								<th>Options</th>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">auto : </span>Boolean
-									<span class="desc italic">Default value: true</span>
-									<span class="desc">When true, changes to dom configuration will result in AJAX calls being made on the parent object.</span>
-								</td>
-								<td><span class="option">'true'</span><span class="option">'false'</span></td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">autoDebounce : </span>Number
-									<span class="desc italic">Default value: 200</span>
-									<span class="desc">The time in milliseconds to debounce dom changes against. This prevents racing calls from keyboard manipulation or other user input binding scenarios.</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">endpoint : </span>String
-									<span class="desc italic">Default value: //</span>
-									<span class="desc">The base url (any urlParams are appended to this) to use for http calls.</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">options : </span>Object (Optional)
-									<span class="desc italic">Default value: {contentType: &#39;application/x-www-form-urlencoded&#39;, timeout: 10000, withCredentials: false, concurrency: 4}</span>
-									
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">saveResponse : </span>Boolean (Optional)
-									<span class="desc italic">Default value: true</span>
-									<span class="desc">Determines if the api response should be persisted back to the data property. This is useful for throwing away server responses to POST calls where you do not want to overwrite the view model</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">apiMarshaller : </span>Object
-									<span class="desc italic">Default value: {noop:function(){}}</span>
-									<span class="desc">An object which can be used to marshall api responses into a more front-end friendly format.  Keys in the object should be functions and should match names passed either in sync options or to response/requestMarshaller. In both cases the keyed method is called with the local data and it is expected to return the proper format for the API.</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">responseMarshaller : </span>String
-									<span class="desc italic">Default value: noop</span>
-									<span class="desc">The deafult key to call in apiMarshaller when a response is recieved from the server.</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">requestMarshaller : </span>String
-									<span class="desc italic">Default value: noop</span>
-									<span class="desc">The default key to call in apiMarshaller when a request is being generated.</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">cacheCsrf : </span>Boolean (Optional)
-									<span class="desc italic">Default value: false</span>
-									<span class="desc">If true, any captured CSRF headers will be cached to localStorage for later use across page reloads.</span>
-								</td>
-								<td><span class="option">'true'</span><span class="option">'false'</span></td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">csrfHeader : </span>String (Optional)
-									
-									<span class="desc">A string value representing the request/response header to look for and pass CSRF tokens on in a given request/response.</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">cacheBuster : </span>Boolean/String (Optional)
-									<span class="desc italic">Default value: true</span>
-									<span class="desc">When true, requests will append a manual queryParam containing a timestamped values for older servers that do not support nocache headers. When set to a string value the string will be used as the queryParam name.</span>
-								</td>
-								<td>none</td>
-							</tr>
-						</table>
-					</section>
-					-->
-
 					<section>
 						<h3>Public Methods</h3>
 						<table>
@@ -572,7 +473,7 @@
 			}
 
 			function navigateToPage(e) {
-				console.log("navigateToPage: ", e.detail.value);
+				// console.log("navigateToPage: ", e.detail.value);
 				if(e.detail.value) {
 					window.location = e.detail.value;
 				} 

@@ -96,40 +96,54 @@
 				</div>
 			</footer>			<article class="layout-article">
 				<div class="docs-content">
-					<h1>mm-radio</h1>
-					<p>A fully-styled radio button.</p>
+					<h1>mm-box</h1>
+					<p>A simple flexbox wrapper for attribute based styling.</p>
 					<hr/>
 					<section>
 						<h3>Example HTML Editor</h3>
 						<div class="editor-wrapper">
-							<div id="editor">&lt;mm-radio group=&quot;aces&quot; unresolved&gt;
-	&lt;label&gt;My Label 1&lt;/label&gt;
-&lt;/mm-radio&gt;
-&lt;mm-radio group=&quot;aces&quot; unresolved&gt;
-	&lt;label&gt;My Label 2&lt;/label&gt;
-&lt;/mm-radio&gt;
-&lt;mm-radio group=&quot;aces&quot; unresolved&gt;
-	&lt;label&gt;My Label 3&lt;/label&gt;
-&lt;/mm-radio&gt;
-&lt;mm-radio group=&quot;aces&quot; checked=&quot;true&quot; disabled=&quot;true&quot; unresolved&gt;
-	&lt;label&gt;My Label 4&lt;/label&gt;
-&lt;/mm-radio&gt;</div>
+							<div id="editor">&lt;!-- Example Style --&gt;
+&lt;style&gt;
+	.box {
+		min-width: 65px;
+		min-height: 65px;
+		background: #ff0000;
+	}
+	.box:not(:last-of-type) { 
+		margin-right: 5px;
+	}
+&lt;/style&gt;
+
+&lt;mm-box direction=&quot;horizontal&quot; align=&quot;stretch&quot; unresolved&gt;
+	&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+	&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+	&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+	&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+	&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+&lt;/mm-box&gt;</div>
 						</div>
 					</section>
 					<section>
 						<h3>Example Output</h3>
-						<div class="content-box example" id="example-mm-radio"><mm-radio group="aces" unresolved>
-	<label>My Label 1</label>
-</mm-radio>
-<mm-radio group="aces" unresolved>
-	<label>My Label 2</label>
-</mm-radio>
-<mm-radio group="aces" unresolved>
-	<label>My Label 3</label>
-</mm-radio>
-<mm-radio group="aces" checked="true" disabled="true" unresolved>
-	<label>My Label 4</label>
-</mm-radio></div>
+						<div class="content-box example" id="example-mm-box"><!-- Example Style -->
+<style>
+	.box {
+		min-width: 65px;
+		min-height: 65px;
+		background: #ff0000;
+	}
+	.box:not(:last-of-type) { 
+		margin-right: 5px;
+	}
+</style>
+
+<mm-box direction="horizontal" align="stretch" unresolved>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+</mm-box></div>
 					</section>
 
 					<section>
@@ -141,86 +155,49 @@
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">group : </span><span class="italic">String&nbsp;(optional)&nbsp;</span><br/>
-									default : <span class="italic">none</span><br/>
-									options : <span class="italic">none</span><br/>
-									attribute : <span class="italic">group</span><br/>
+									<span class="bold">direction : </span><span class="italic">String&nbsp;(optional)&nbsp;</span><br/>
+									default : <span class="italic">horizontal</span><br/>
+									options : <span class="italic"><span class="option">horizontal</span><span class="option">vertical</span></span><br/>
+									attribute : <span class="italic">direction</span><br/>
 									reflected to attribute : <span class="italic">no</span>
 								</td>
 								<td>
-									<span class="desc">The name of the group to which the radio button belongs.</span>
+									<span class="desc">Instructs the mm-box to arrange it&#39;s lightDOM children in a horizontal or vertical orientation (see: flexbox flex-direction).</span>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">checked : </span><span class="italic">Boolean&nbsp;(optional)&nbsp;</span><br/>
-									default : <span class="italic">false</span><br/>
-									options : <span class="italic">none</span><br/>
-									attribute : <span class="italic">checked</span><br/>
+									<span class="bold">align : </span><span class="italic">String&nbsp;(optional)&nbsp;</span><br/>
+									default : <span class="italic">flex-start</span><br/>
+									options : <span class="italic"><span class="option">flex-start</span><span class="option">flex-end</span><span class="option">center</span><span class="option">baseline</span><span class="option">stretch</span></span><br/>
+									attribute : <span class="italic">align</span><br/>
 									reflected to attribute : <span class="italic">no</span>
 								</td>
 								<td>
-									<span class="desc">Checked attribute.</span>
+									<span class="desc">Instructs the mm-box to align it&#39;s lightDOM children (see: flexbox align-items).</span>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">fitparent : </span><span class="italic">Boolean&nbsp;(optional)&nbsp;</span><br/>
-									default : <span class="italic">null</span><br/>
-									options : <span class="italic">none</span><br/>
-									attribute : <span class="italic">fitparent</span><br/>
+									<span class="bold">justify : </span><span class="italic">String&nbsp;(optional)&nbsp;</span><br/>
+									default : <span class="italic">flex-start</span><br/>
+									options : <span class="italic"><span class="option">flex-start</span><span class="option">flex-end</span><span class="option">center</span><span class="option">space-between</span><span class="option">space-around</span></span><br/>
+									attribute : <span class="italic">justify</span><br/>
 									reflected to attribute : <span class="italic">no</span>
 								</td>
 								<td>
-									<span class="desc">Instructs the component to fit to its parent container&#39;s width (percent or pixel width).</span>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">disabled : </span><span class="italic">Boolean&nbsp;(optional)&nbsp;</span><br/>
-									default : <span class="italic">false</span><br/>
-									options : <span class="italic">none</span><br/>
-									attribute : <span class="italic">disabled</span><br/>
-									reflected to attribute : <span class="italic">no</span>
-								</td>
-								<td>
-									<span class="desc">Disable the item</span>
+									<span class="desc">Instructs the mm-box to justify it&#39;s lightDOM children (see: flexbox justify-content).</span>
 								</td>
 							</tr>
 						</table>
 					</section>
 
-					<section>
-						<h3>Events</h3>
-						<table>
-							<tr>
-								<th>Event</th>
-								<th>Event Detail</th>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">Type</span> : 'selected'</span>
-									
-								</td>
-								<td>
-									<span class="arg">
-										<span class="bold">checked</span> : <span class="italic">Boolean</span><br/>
-										<span class="desc">The status of this radio button&#39;s selection</span>
-									</span>
-									<span class="arg">
-										<span class="bold">item</span> : <span class="italic">Object</span><br/>
-										<span class="desc">A reference to the item which triggered the event</span>
-									</span>
-								</td>
-							</tr>
-						</table>
-					</section>
 				</div>
 				<div class="layout-push"></div>
 			</article>
 		</mm-docs-shell>
 		<script>
-			var name = "mm-radio",
+			var name = "mm-box",
 				articlesNav,
 				componentsNav,
 				docsShell,

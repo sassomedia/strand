@@ -21,7 +21,7 @@
 		<script language="javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 		<script language="javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
 	</head>	<body unresolved>
-		<mm-docs-shell id="docsShell" version="2.0.0" mobile-header="Strand Docs">
+		<mm-docs-shell id="docsShell" version="2.0.1" mobile-header="Strand Docs">
 			<mm-docs-nav id="articlesNav">
 				<mm-header size="medium">Articles</mm-header>
 				<mm-list-item id="getting_started" value="article_getting_started.html">Getting Started</mm-list-item>
@@ -38,6 +38,7 @@
 				<mm-list-item id="mm-action" value="mm-action.html">mm-action</mm-list-item>
 				<mm-list-item id="mm-ajax" value="mm-ajax.html">mm-ajax</mm-list-item>
 				<mm-list-item id="mm-autocomplete" value="mm-autocomplete.html">mm-autocomplete</mm-list-item>
+				<mm-list-item id="mm-box" value="mm-box.html">mm-box</mm-list-item>
 				<mm-list-item id="mm-button" value="mm-button.html">mm-button</mm-list-item>
 				<mm-list-item id="mm-calendar" value="mm-calendar.html">mm-calendar</mm-list-item>
 				<mm-list-item id="mm-checkbox" value="mm-checkbox.html">mm-checkbox</mm-list-item>
@@ -46,6 +47,7 @@
 				<mm-list-item id="mm-dialog" value="mm-dialog.html">mm-dialog</mm-list-item>
 				<mm-list-item id="mm-drawer" value="mm-drawer.html">mm-drawer</mm-list-item>
 				<mm-list-item id="mm-dropdown" value="mm-dropdown.html">mm-dropdown</mm-list-item>
+				<mm-list-item id="mm-file-upload" value="mm-file-upload.html">mm-file-upload</mm-list-item>
 				<mm-list-item id="mm-footer" value="mm-footer.html">mm-footer</mm-list-item>
 				<mm-list-item id="mm-grid-column" value="mm-grid-column.html">mm-grid-column</mm-list-item>
 				<mm-list-item id="mm-grid-item" value="mm-grid-item.html">mm-grid-item</mm-list-item>
@@ -75,10 +77,10 @@
 				<mm-list-item id="mm-tooltip" value="mm-tooltip.html">mm-tooltip</mm-list-item>
 			</mm-docs-nav>
 			<div class="docs-logo">
-				<a href="http://mediamath.github.io/strand/" target="_self" class="strand-logo">
+				<a class="strand-logo">
 					<img src="images/strand-logo.svg" />
 				</a>
-				<p class="mini-subhead version">v2.0.0</p>
+				<p class="mini-subhead version">v2.0.1</p>
 			</div>			<footer class="layout-footer">
 				<div class="docs-footer">
 					<div class="footer-logo-box">
@@ -102,7 +104,7 @@
 						<div class="editor-wrapper">
 							<div id="editor">&lt;ul&gt;
 	&lt;li&gt;
-		&lt;mm-icon type=&quot;actions&quot; width=&quot;32&quot; height=&quot;32&quot;&gt;&lt;/mm-icon&gt;
+		&lt;mm-icon class=&quot;actions&quot; type=&quot;actions&quot; width=&quot;32&quot; height=&quot;32&quot;&gt;&lt;/mm-icon&gt;
 		&lt;p&gt;actions&lt;/p&gt;
 	&lt;/li&gt;
 	&lt;li&gt;
@@ -189,6 +191,12 @@
 		&lt;mm-icon type=&quot;clock&quot; width=&quot;32&quot; height=&quot;32&quot;&gt;&lt;/mm-icon&gt;
 		&lt;p&gt;clock&lt;/p&gt;
 	&lt;/li&gt;
+
+	&lt;li&gt;
+		&lt;mm-icon type=&quot;companion&quot; width=&quot;32&quot; height=&quot;32&quot;&gt;&lt;/mm-icon&gt;
+		&lt;p&gt;companion&lt;/p&gt;
+	&lt;/li&gt;
+
 	&lt;li&gt;
 		&lt;mm-icon type=&quot;contextual&quot; width=&quot;32&quot; height=&quot;32&quot;&gt;&lt;/mm-icon&gt;
 		&lt;p&gt;contextual&lt;/p&gt;
@@ -370,6 +378,10 @@
 		&lt;p&gt;play&lt;/p&gt;
 	&lt;/li&gt;
 	&lt;li&gt;
+		&lt;mm-icon type=&quot;player&quot; width=&quot;32&quot; height=&quot;32&quot;&gt;&lt;/mm-icon&gt;
+		&lt;p&gt;player&lt;/p&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
 		&lt;mm-icon type=&quot;plus&quot; width=&quot;32&quot; height=&quot;32&quot;&gt;&lt;/mm-icon&gt;
 		&lt;p&gt;plus&lt;/p&gt;
 	&lt;/li&gt;
@@ -426,6 +438,10 @@
 		&lt;p&gt;tools&lt;/p&gt;
 	&lt;/li&gt;
 	&lt;li&gt;
+		&lt;mm-icon type=&quot;tracker&quot; width=&quot;32&quot; height=&quot;32&quot;&gt;&lt;/mm-icon&gt;
+		&lt;p&gt;tracker&lt;/p&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
 		&lt;mm-icon type=&quot;unlock&quot; width=&quot;32&quot; height=&quot;32&quot;&gt;&lt;/mm-icon&gt;
 		&lt;p&gt;unlock&lt;/p&gt;
 	&lt;/li&gt;
@@ -453,6 +469,10 @@
 		&lt;mm-icon type=&quot;wireless&quot; width=&quot;32&quot; height=&quot;32&quot;&gt;&lt;/mm-icon&gt;
 		&lt;p&gt;wireless&lt;/p&gt;
 	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;mm-icon type=&quot;xml&quot; width=&quot;32&quot; height=&quot;32&quot;&gt;&lt;/mm-icon&gt;
+		&lt;p&gt;xml&lt;/p&gt;
+	&lt;/li&gt;
 &lt;/ul&gt;</div>
 						</div>
 					</section>
@@ -460,7 +480,7 @@
 						<h3>Example Output</h3>
 						<div class="content-box example" id="example-mm-icon"><ul>
 	<li>
-		<mm-icon type="actions" width="32" height="32"></mm-icon>
+		<mm-icon class="actions" type="actions" width="32" height="32"></mm-icon>
 		<p>actions</p>
 	</li>
 	<li>
@@ -547,6 +567,12 @@
 		<mm-icon type="clock" width="32" height="32"></mm-icon>
 		<p>clock</p>
 	</li>
+
+	<li>
+		<mm-icon type="companion" width="32" height="32"></mm-icon>
+		<p>companion</p>
+	</li>
+
 	<li>
 		<mm-icon type="contextual" width="32" height="32"></mm-icon>
 		<p>contextual</p>
@@ -728,6 +754,10 @@
 		<p>play</p>
 	</li>
 	<li>
+		<mm-icon type="player" width="32" height="32"></mm-icon>
+		<p>player</p>
+	</li>
+	<li>
 		<mm-icon type="plus" width="32" height="32"></mm-icon>
 		<p>plus</p>
 	</li>
@@ -784,6 +814,10 @@
 		<p>tools</p>
 	</li>
 	<li>
+		<mm-icon type="tracker" width="32" height="32"></mm-icon>
+		<p>tracker</p>
+	</li>
+	<li>
 		<mm-icon type="unlock" width="32" height="32"></mm-icon>
 		<p>unlock</p>
 	</li>
@@ -811,6 +845,10 @@
 		<mm-icon type="wireless" width="32" height="32"></mm-icon>
 		<p>wireless</p>
 	</li>
+	<li>
+		<mm-icon type="xml" width="32" height="32"></mm-icon>
+		<p>xml</p>
+	</li>
 </ul></div>
 					</section>
 
@@ -825,7 +863,7 @@
 								<td>
 									<span class="bold">type : </span><span class="italic">String&nbsp;(optional)&nbsp;</span><br/>
 									default : <span class="italic">plus</span><br/>
-									options : <span class="italic"><span class="option">actions</span><span class="option">action</span><span class="option">alerts</span><span class="option">all channels</span><span class="option">apps</span><span class="option">audience</span><span class="option">bar-chart</span><span class="option">budget-flight</span><span class="option">calendar</span><span class="option">campaigns</span><span class="option">carat-line</span><span class="option">carat</span><span class="option">card</span><span class="option">certificate</span><span class="option">changelog</span><span class="option">chart-dashed-2</span><span class="option">chart-dashed</span><span class="option">chart</span><span class="option">check-alt</span><span class="option">check</span><span class="option">circle-arrow</span><span class="option">clock</span><span class="option">contextual</span><span class="option">creatives</span><span class="option">cycle-arrow</span><span class="option">day-part</span><span class="option">deals</span><span class="option">delete</span><span class="option">details</span><span class="option">display</span><span class="option">document</span><span class="option">dots</span><span class="option">download</span><span class="option">drag-drop</span><span class="option">duplicate</span><span class="option">edit</span><span class="option">event-marker</span><span class="option">exclude</span><span class="option">expand-all</span><span class="option">fail</span><span class="option">favorite</span><span class="option">filter</span><span class="option">geo-map</span><span class="option">geo-tag</span><span class="option">grid-table</span><span class="option">group</span><span class="option">health</span><span class="option">include-outline</span><span class="option">include</span><span class="option">info</span><span class="option">jump-to</span><span class="option">left-right-arrow</span><span class="option">lego</span><span class="option">line-chart-2nd</span><span class="option">line-chart</span><span class="option">lock</span><span class="option">mail</span><span class="option">minus</span><span class="option">my-data</span><span class="option">partial-include</span><span class="option">partial</span><span class="option">pause</span><span class="option">pie-chart</span><span class="option">pixels</span><span class="option">play</span><span class="option">plus</span><span class="option">preview</span><span class="option">question</span><span class="option">refresh</span><span class="option">reporting</span><span class="option">scatter-plot</span><span class="option">search</span><span class="option">site-list</span><span class="option">sort</span><span class="option">success</span><span class="option">supply-node</span><span class="option">supply</span><span class="option">three-pas-adserver</span><span class="option">tools</span><span class="option">unlock</span><span class="option">up-arrow</span><span class="option">upload</span><span class="option">user</span><span class="option">video</span><span class="option">warning</span><span class="option">wireless</span></span><br/>
+									options : <span class="italic"><span class="option">actions</span><span class="option">action</span><span class="option">alerts</span><span class="option">all channels</span><span class="option">apps</span><span class="option">audience</span><span class="option">bar-chart</span><span class="option">budget-flight</span><span class="option">calendar</span><span class="option">campaigns</span><span class="option">carat-line</span><span class="option">carat</span><span class="option">card</span><span class="option">certificate</span><span class="option">changelog</span><span class="option">chart-dashed-2</span><span class="option">chart-dashed</span><span class="option">chart</span><span class="option">check-alt</span><span class="option">check</span><span class="option">circle-arrow</span><span class="option">clock</span><span class="option">companion</span><span class="option">contextual</span><span class="option">creatives</span><span class="option">cycle-arrow</span><span class="option">day-part</span><span class="option">deals</span><span class="option">delete</span><span class="option">details</span><span class="option">display</span><span class="option">document</span><span class="option">dots</span><span class="option">download</span><span class="option">drag-drop</span><span class="option">duplicate</span><span class="option">edit</span><span class="option">event-marker</span><span class="option">exclude</span><span class="option">expand-all</span><span class="option">fail</span><span class="option">favorite</span><span class="option">filter</span><span class="option">geo-map</span><span class="option">geo-tag</span><span class="option">grid-table</span><span class="option">group</span><span class="option">health</span><span class="option">include-outline</span><span class="option">include</span><span class="option">info</span><span class="option">jump-to</span><span class="option">left-right-arrow</span><span class="option">lego</span><span class="option">line-chart-2nd</span><span class="option">line-chart</span><span class="option">lock</span><span class="option">mail</span><span class="option">minus</span><span class="option">my-data</span><span class="option">partial-include</span><span class="option">partial</span><span class="option">pause</span><span class="option">pie-chart</span><span class="option">pixels</span><span class="option">play</span><span class="option">player</span><span class="option">plus</span><span class="option">preview</span><span class="option">question</span><span class="option">refresh</span><span class="option">reporting</span><span class="option">scatter-plot</span><span class="option">search</span><span class="option">site-list</span><span class="option">sort</span><span class="option">success</span><span class="option">supply-node</span><span class="option">supply</span><span class="option">three-pas-adserver</span><span class="option">tools</span><span class="option">tracker</span><span class="option">unlock</span><span class="option">up-arrow</span><span class="option">upload</span><span class="option">user</span><span class="option">video</span><span class="option">warning</span><span class="option">wireless</span><span class="option">xml</span></span><br/>
 									attribute : <span class="italic">type</span><br/>
 									reflected to attribute : <span class="italic">yes</span>
 								</td>
@@ -859,43 +897,6 @@
 							</tr>
 						</table>
 					</section>
-
-					<!--
-					<section>
-						<h3>Attributes</h3>
-						<table>
-							<tr>
-								<th>Attribute</th>								
-								<th>Options</th>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">type : </span>String (Optional)
-									<span class="desc italic">Default value: plus</span>
-									<span class="desc">A string value for the name of the desired icon. Sets the type of icon to be displayed. See the options for naming and example for visual reference.</span>
-								</td>
-								<td><span class="option">'actions'</span><span class="option">'action'</span><span class="option">'alerts'</span><span class="option">'all channels'</span><span class="option">'apps'</span><span class="option">'audience'</span><span class="option">'bar-chart'</span><span class="option">'budget-flight'</span><span class="option">'calendar'</span><span class="option">'campaigns'</span><span class="option">'carat-line'</span><span class="option">'carat'</span><span class="option">'card'</span><span class="option">'certificate'</span><span class="option">'changelog'</span><span class="option">'chart-dashed-2'</span><span class="option">'chart-dashed'</span><span class="option">'chart'</span><span class="option">'check-alt'</span><span class="option">'check'</span><span class="option">'circle-arrow'</span><span class="option">'clock'</span><span class="option">'contextual'</span><span class="option">'creatives'</span><span class="option">'cycle-arrow'</span><span class="option">'day-part'</span><span class="option">'deals'</span><span class="option">'delete'</span><span class="option">'details'</span><span class="option">'display'</span><span class="option">'document'</span><span class="option">'dots'</span><span class="option">'download'</span><span class="option">'drag-drop'</span><span class="option">'duplicate'</span><span class="option">'edit'</span><span class="option">'event-marker'</span><span class="option">'exclude'</span><span class="option">'expand-all'</span><span class="option">'fail'</span><span class="option">'favorite'</span><span class="option">'filter'</span><span class="option">'geo-map'</span><span class="option">'geo-tag'</span><span class="option">'grid-table'</span><span class="option">'group'</span><span class="option">'health'</span><span class="option">'include-outline'</span><span class="option">'include'</span><span class="option">'info'</span><span class="option">'jump-to'</span><span class="option">'left-right-arrow'</span><span class="option">'lego'</span><span class="option">'line-chart-2nd'</span><span class="option">'line-chart'</span><span class="option">'lock'</span><span class="option">'mail'</span><span class="option">'minus'</span><span class="option">'my-data'</span><span class="option">'partial-include'</span><span class="option">'partial'</span><span class="option">'pause'</span><span class="option">'pie-chart'</span><span class="option">'pixels'</span><span class="option">'play'</span><span class="option">'plus'</span><span class="option">'preview'</span><span class="option">'question'</span><span class="option">'refresh'</span><span class="option">'reporting'</span><span class="option">'scatter-plot'</span><span class="option">'search'</span><span class="option">'site-list'</span><span class="option">'sort'</span><span class="option">'success'</span><span class="option">'supply-node'</span><span class="option">'supply'</span><span class="option">'three-pas-adserver'</span><span class="option">'tools'</span><span class="option">'unlock'</span><span class="option">'up-arrow'</span><span class="option">'upload'</span><span class="option">'user'</span><span class="option">'video'</span><span class="option">'warning'</span><span class="option">'wireless'</span></td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">width : </span>Number (Optional)
-									<span class="desc italic">Default value: 28</span>
-									<span class="desc">Sets the width of the icon in pixels.</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">height : </span>Number (Optional)
-									<span class="desc italic">Default value: 28</span>
-									<span class="desc">Sets the height of the icon in pixels.</span>
-								</td>
-								<td>none</td>
-							</tr>
-						</table>
-					</section>
-					-->
-
 
 				</div>
 				<div class="layout-push"></div>
@@ -954,7 +955,7 @@
 			}
 
 			function navigateToPage(e) {
-				console.log("navigateToPage: ", e.detail.value);
+				// console.log("navigateToPage: ", e.detail.value);
 				if(e.detail.value) {
 					window.location = e.detail.value;
 				} 

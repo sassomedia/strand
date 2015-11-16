@@ -21,7 +21,7 @@
 		<script language="javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 		<script language="javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
 	</head>	<body unresolved>
-		<mm-docs-shell id="docsShell" version="2.0.0" mobile-header="Strand Docs">
+		<mm-docs-shell id="docsShell" version="2.0.1" mobile-header="Strand Docs">
 			<mm-docs-nav id="articlesNav">
 				<mm-header size="medium">Articles</mm-header>
 				<mm-list-item id="getting_started" value="article_getting_started.html">Getting Started</mm-list-item>
@@ -38,6 +38,7 @@
 				<mm-list-item id="mm-action" value="mm-action.html">mm-action</mm-list-item>
 				<mm-list-item id="mm-ajax" value="mm-ajax.html">mm-ajax</mm-list-item>
 				<mm-list-item id="mm-autocomplete" value="mm-autocomplete.html">mm-autocomplete</mm-list-item>
+				<mm-list-item id="mm-box" value="mm-box.html">mm-box</mm-list-item>
 				<mm-list-item id="mm-button" value="mm-button.html">mm-button</mm-list-item>
 				<mm-list-item id="mm-calendar" value="mm-calendar.html">mm-calendar</mm-list-item>
 				<mm-list-item id="mm-checkbox" value="mm-checkbox.html">mm-checkbox</mm-list-item>
@@ -46,6 +47,7 @@
 				<mm-list-item id="mm-dialog" value="mm-dialog.html">mm-dialog</mm-list-item>
 				<mm-list-item id="mm-drawer" value="mm-drawer.html">mm-drawer</mm-list-item>
 				<mm-list-item id="mm-dropdown" value="mm-dropdown.html">mm-dropdown</mm-list-item>
+				<mm-list-item id="mm-file-upload" value="mm-file-upload.html">mm-file-upload</mm-list-item>
 				<mm-list-item id="mm-footer" value="mm-footer.html">mm-footer</mm-list-item>
 				<mm-list-item id="mm-grid-column" value="mm-grid-column.html">mm-grid-column</mm-list-item>
 				<mm-list-item id="mm-grid-item" value="mm-grid-item.html">mm-grid-item</mm-list-item>
@@ -75,10 +77,10 @@
 				<mm-list-item id="mm-tooltip" value="mm-tooltip.html">mm-tooltip</mm-list-item>
 			</mm-docs-nav>
 			<div class="docs-logo">
-				<a href="http://mediamath.github.io/strand/" target="_self" class="strand-logo">
+				<a class="strand-logo">
 					<img src="images/strand-logo.svg" />
 				</a>
-				<p class="mini-subhead version">v2.0.0</p>
+				<p class="mini-subhead version">v2.0.1</p>
 			</div>			<footer class="layout-footer">
 				<div class="docs-footer">
 					<div class="footer-logo-box">
@@ -468,123 +470,6 @@
 							</tr>
 						</table>
 					</section>
-
-					<!--
-					<section>
-						<h3>Attributes</h3>
-						<table>
-							<tr>
-								<th>Attribute</th>								
-								<th>Options</th>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">data : </span>Array
-									<span class="desc italic">Default value: null</span>
-									<span class="desc">The array of data or mm-collection to render into the grid.</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">itemTemplate : </span>String (Optional)
-									
-									<span class="desc">A string pointing to a custom item template by ID.  Should be explicitly assigned if &#39;itemTemplateElement&#39; is not.</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">itemTemplateElement : </span>Object (Optional)
-									
-									<span class="desc">The custom item template DOM fragment.  Should be explicitly assigned if &#39;itemTemplate&#39; is not.</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">selectable : </span>Boolean (Optional)
-									<span class="desc italic">Default value: false</span>
-									<span class="desc">Enable selectable grid items.</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">expandable : </span>Boolean (Optional)
-									<span class="desc italic">Default value: false</span>
-									<span class="desc">Enable expandable grid items.</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">sortField : </span>String (Optional)
-									
-									<span class="desc">Set/Get the current sort data field.</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">sortOrder : </span>Integer (Optional)
-									
-									<span class="desc">Set/Get the current sort order</span>
-								</td>
-								<td><span class="option">'-1'</span><span class="option">'0'</span><span class="option">'1'</span></td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">selected : </span>Array
-									<span class="desc italic">Default value: []</span>
-									<span class="desc">Returns array of selected items.</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">expanded : </span>Boolean (Optional)
-									<span class="desc italic">Default value: false</span>
-									<span class="desc">Whether or not the grid has expanded all of its items.</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">isLoading : </span>Boolean (Optional)
-									<span class="desc italic">Default value: false</span>
-									<span class="desc">Whether or not the grid should indicate that it is globally waiting for data to load.</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">scope : </span>Object
-									<span class="desc italic">Default value: the grid itself</span>
-									<span class="desc">The content scope that is passed to the grid&#39;s items - typically the grid itself.</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">gpu : </span>String (Optional)
-									<span class="desc italic">Default value: 2d</span>
-									<span class="desc">Indication of which rendering method is preferred - note that &#39;3d&#39; rendering can have unintended clipping effects on content in the grid.</span>
-								</td>
-								<td><span class="option">'2d'</span><span class="option">'3d'</span></td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">index : </span>Integer
-									
-									<span class="desc">The current first visible item&#39;s index at the top of the grid.</span>
-								</td>
-								<td>none</td>
-							</tr>
-						</table>
-					</section>
-					-->
-
 					<section>
 						<h3>Public Methods</h3>
 						<table>
@@ -731,7 +616,7 @@
 			}
 
 			function navigateToPage(e) {
-				console.log("navigateToPage: ", e.detail.value);
+				// console.log("navigateToPage: ", e.detail.value);
 				if(e.detail.value) {
 					window.location = e.detail.value;
 				} 

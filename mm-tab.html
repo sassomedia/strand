@@ -21,7 +21,7 @@
 		<script language="javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 		<script language="javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
 	</head>	<body unresolved>
-		<mm-docs-shell id="docsShell" version="2.0.0" mobile-header="Strand Docs">
+		<mm-docs-shell id="docsShell" version="2.0.1" mobile-header="Strand Docs">
 			<mm-docs-nav id="articlesNav">
 				<mm-header size="medium">Articles</mm-header>
 				<mm-list-item id="getting_started" value="article_getting_started.html">Getting Started</mm-list-item>
@@ -38,6 +38,7 @@
 				<mm-list-item id="mm-action" value="mm-action.html">mm-action</mm-list-item>
 				<mm-list-item id="mm-ajax" value="mm-ajax.html">mm-ajax</mm-list-item>
 				<mm-list-item id="mm-autocomplete" value="mm-autocomplete.html">mm-autocomplete</mm-list-item>
+				<mm-list-item id="mm-box" value="mm-box.html">mm-box</mm-list-item>
 				<mm-list-item id="mm-button" value="mm-button.html">mm-button</mm-list-item>
 				<mm-list-item id="mm-calendar" value="mm-calendar.html">mm-calendar</mm-list-item>
 				<mm-list-item id="mm-checkbox" value="mm-checkbox.html">mm-checkbox</mm-list-item>
@@ -46,6 +47,7 @@
 				<mm-list-item id="mm-dialog" value="mm-dialog.html">mm-dialog</mm-list-item>
 				<mm-list-item id="mm-drawer" value="mm-drawer.html">mm-drawer</mm-list-item>
 				<mm-list-item id="mm-dropdown" value="mm-dropdown.html">mm-dropdown</mm-list-item>
+				<mm-list-item id="mm-file-upload" value="mm-file-upload.html">mm-file-upload</mm-list-item>
 				<mm-list-item id="mm-footer" value="mm-footer.html">mm-footer</mm-list-item>
 				<mm-list-item id="mm-grid-column" value="mm-grid-column.html">mm-grid-column</mm-list-item>
 				<mm-list-item id="mm-grid-item" value="mm-grid-item.html">mm-grid-item</mm-list-item>
@@ -75,10 +77,10 @@
 				<mm-list-item id="mm-tooltip" value="mm-tooltip.html">mm-tooltip</mm-list-item>
 			</mm-docs-nav>
 			<div class="docs-logo">
-				<a href="http://mediamath.github.io/strand/" target="_self" class="strand-logo">
+				<a class="strand-logo">
 					<img src="images/strand-logo.svg" />
 				</a>
-				<p class="mini-subhead version">v2.0.0</p>
+				<p class="mini-subhead version">v2.0.1</p>
 			</div>			<footer class="layout-footer">
 				<div class="docs-footer">
 					<div class="footer-logo-box">
@@ -100,12 +102,12 @@
 					<section>
 						<h3>Example HTML Editor</h3>
 						<div class="editor-wrapper">
-							<div id="editor"></div>
+							<div id="editor">&lt;mm-tab id=&quot;ext&quot; tab-label=&quot;External load&quot; icon=&quot;apps&quot; url=&quot;tab-content.html&quot;&gt;&lt;/mm-tab&gt;</div>
 						</div>
 					</section>
 					<section>
 						<h3>Example Output</h3>
-						<div class="content-box example" id="example-mm-tab"></div>
+						<div class="content-box example" id="example-mm-tab"><mm-tab id="ext" tab-label="External load" icon="apps" url="tab-content.html"></mm-tab></div>
 					</section>
 
 					<section>
@@ -145,7 +147,7 @@
 									reflected to attribute : <span class="italic">no</span>
 								</td>
 								<td>
-									<span class="desc">Path to an html document, if loading an external view into the tab. Use the loadExternal method if a callback is required when the tab loads.</span>
+									<span class="desc">Relative path to an external html document to lazily load into the tab. The content of the external document must be surrounded by a &lt;template&gt; tag and may use Polymer&#39;s binding annotations. Use the loadExternal method if a callback is required when the tab loads.</span>
 								</td>
 							</tr>
 							<tr>
@@ -162,51 +164,6 @@
 							</tr>
 						</table>
 					</section>
-
-					<!--
-					<section>
-						<h3>Attributes</h3>
-						<table>
-							<tr>
-								<th>Attribute</th>								
-								<th>Options</th>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">tabLabel : </span>String
-									
-									<span class="desc">The text displayed on the tab</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">icon : </span>String (Optional)
-									
-									<span class="desc">The name of an mm-icon displayed next to the tab label</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">url : </span>String (Optional)
-									
-									<span class="desc">Path to an html document, if loading an external view into the tab. Use the loadExternal method if a callback is required when the tab loads.</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">active : </span>Boolean (Optional)
-									<span class="desc italic">Default value: false</span>
-									<span class="desc">Whether this tab is active. There should only be one active tab at a time. If no active tab is set, the first tab defaults to active.</span>
-								</td>
-								<td>none</td>
-							</tr>
-						</table>
-					</section>
-					-->
-
 					<section>
 						<h3>Public Methods</h3>
 						<table>
@@ -217,24 +174,49 @@
 							<tr>
 								<td>
 									<span class="bold">loadExternal</span>(<span><span class="italic option">url</span><span class="italic option">callback</span></span>)<br/>
-									<span class="desc">Lazily load this tab&#39;s content from an external html document, and attach a callback for when the tab content is loaded</span>
+									<span class="desc">Lazily load this tab&#39;s content from an external html document, and attach a callback for when the tab content is loaded. The content of the external document must be surrounded by a &lt;template&gt; tag and may use Polymer&#39;s binding annotations.</span>
 								</td>
 								<td>
 									<span class="arg">
 										<span class="bold">url : </span><span class="italic">String</span><br/>
 										<br/>
-										<span class="desc">Path to an html document to lazily load into the tab</span>
+										<span class="desc">Relative path to an external html document to lazily load into the tab.</span>
 									</span>
 									<span class="arg">
 										<span class="bold">callback : </span><span class="italic">Function&nbsp;(optional)</span><br/>
 										<br/>
-										<span class="desc">The callback to run when the tab is loaded. </span>
+										<span class="desc">Function to call when the tab is loaded. The template instance is passed as an argument to the callback, useful when accessing properties on the current binding scope is needed.</span>
 									</span>
 								</td>
 							</tr>
 						</table>
 					</section>
 
+					<section>
+						<h3>Events</h3>
+						<table>
+							<tr>
+								<th>Event</th>
+								<th>Event Detail</th>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">Type</span> : 'loaded'</span>
+									
+								</td>
+								<td>
+									<span class="arg">
+										<span class="bold">label</span> : <span class="italic">String</span><br/>
+										<span class="desc">The text label of the tab that fired the event</span>
+									</span>
+									<span class="arg">
+										<span class="bold">target</span> : <span class="italic">Object</span><br/>
+										<span class="desc">Reference to the tab that fired the event</span>
+									</span>
+								</td>
+							</tr>
+						</table>
+					</section>
 				</div>
 				<div class="layout-push"></div>
 			</article>
@@ -292,7 +274,7 @@
 			}
 
 			function navigateToPage(e) {
-				console.log("navigateToPage: ", e.detail.value);
+				// console.log("navigateToPage: ", e.detail.value);
 				if(e.detail.value) {
 					window.location = e.detail.value;
 				} 

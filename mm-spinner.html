@@ -21,7 +21,7 @@
 		<script language="javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 		<script language="javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
 	</head>	<body unresolved>
-		<mm-docs-shell id="docsShell" version="2.0.0" mobile-header="Strand Docs">
+		<mm-docs-shell id="docsShell" version="2.0.1" mobile-header="Strand Docs">
 			<mm-docs-nav id="articlesNav">
 				<mm-header size="medium">Articles</mm-header>
 				<mm-list-item id="getting_started" value="article_getting_started.html">Getting Started</mm-list-item>
@@ -38,6 +38,7 @@
 				<mm-list-item id="mm-action" value="mm-action.html">mm-action</mm-list-item>
 				<mm-list-item id="mm-ajax" value="mm-ajax.html">mm-ajax</mm-list-item>
 				<mm-list-item id="mm-autocomplete" value="mm-autocomplete.html">mm-autocomplete</mm-list-item>
+				<mm-list-item id="mm-box" value="mm-box.html">mm-box</mm-list-item>
 				<mm-list-item id="mm-button" value="mm-button.html">mm-button</mm-list-item>
 				<mm-list-item id="mm-calendar" value="mm-calendar.html">mm-calendar</mm-list-item>
 				<mm-list-item id="mm-checkbox" value="mm-checkbox.html">mm-checkbox</mm-list-item>
@@ -46,6 +47,7 @@
 				<mm-list-item id="mm-dialog" value="mm-dialog.html">mm-dialog</mm-list-item>
 				<mm-list-item id="mm-drawer" value="mm-drawer.html">mm-drawer</mm-list-item>
 				<mm-list-item id="mm-dropdown" value="mm-dropdown.html">mm-dropdown</mm-list-item>
+				<mm-list-item id="mm-file-upload" value="mm-file-upload.html">mm-file-upload</mm-list-item>
 				<mm-list-item id="mm-footer" value="mm-footer.html">mm-footer</mm-list-item>
 				<mm-list-item id="mm-grid-column" value="mm-grid-column.html">mm-grid-column</mm-list-item>
 				<mm-list-item id="mm-grid-item" value="mm-grid-item.html">mm-grid-item</mm-list-item>
@@ -75,10 +77,10 @@
 				<mm-list-item id="mm-tooltip" value="mm-tooltip.html">mm-tooltip</mm-list-item>
 			</mm-docs-nav>
 			<div class="docs-logo">
-				<a href="http://mediamath.github.io/strand/" target="_self" class="strand-logo">
+				<a class="strand-logo">
 					<img src="images/strand-logo.svg" />
 				</a>
-				<p class="mini-subhead version">v2.0.0</p>
+				<p class="mini-subhead version">v2.0.1</p>
 			</div>			<footer class="layout-footer">
 				<div class="docs-footer">
 					<div class="footer-logo-box">
@@ -231,91 +233,6 @@
 							</tr>
 						</table>
 					</section>
-
-					<!--
-					<section>
-						<h3>Attributes</h3>
-						<table>
-							<tr>
-								<th>Attribute</th>								
-								<th>Options</th>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">radius : </span>Number (Optional)
-									<span class="desc italic">Default value: 9</span>
-									<span class="desc">The radius of the spinner (which is always circular). As expected, radius of 9 yeilds an 18px circle.</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">innerRadius : </span>Number (Optional)
-									<span class="desc italic">Default value: 0.5</span>
-									<span class="desc">The inner radius of the spinner from where the line tick starts drawing. Values greater than 1 are pixel based - less than 1 is proportional to radius (ie. 0.5 == 50% of radius)</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">numTicks : </span>Number (Optional)
-									<span class="desc italic">Default value: 12</span>
-									<span class="desc">The number of ticks (lines) which compose the circumference of the spinner. Defaults to 12 for a &#39;standard&#39; analog clock look.</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">speed : </span>Number (Optional)
-									<span class="desc italic">Default value: 1.33</span>
-									<span class="desc">Spinner speed in cycles per second.</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">lineWidth : </span>Number (Optional)
-									<span class="desc italic">Default value: 0.5</span>
-									<span class="desc">The width of each tick (line) which compose the circumference of the spinner. Values greater than 1 are pixel based - less than 1 is proportional to radius (ie. 0.5 == 50% of radius)</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">lineWeight : </span>Number (Optional)
-									<span class="desc italic">Default value: 0.5</span>
-									<span class="desc">The thickness of each tick (line) which compose the circumference of the spinner. Values greater than 1 are pixel based - less than 1 is proportional to the square root of radius (ie. 0.5 == sqrt(radius) * 0.5)</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">fillColor : </span>String (Optional)
-									<span class="desc italic">Default value: #ffffff</span>
-									<span class="desc">The hex color number to fill each tick (line) which compose the circumference of the spinner. Expects a 7 character string (i.e. &#39;#ffffff&#39;).</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">bgColor : </span>String (Optional)
-									<span class="desc italic">Default value: null</span>
-									<span class="desc">The hex color number to fill the background of the spinner. The default is null to leave the background transparent.</span>
-								</td>
-								<td>none</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">paused : </span>String (Optional)
-									<span class="desc italic">Default value: false</span>
-									<span class="desc">Whether or not the animation is running.</span>
-								</td>
-								<td>none</td>
-							</tr>
-						</table>
-					</section>
-					-->
-
 					<section>
 						<h3>Public Methods</h3>
 						<table>
@@ -401,7 +318,7 @@
 			}
 
 			function navigateToPage(e) {
-				console.log("navigateToPage: ", e.detail.value);
+				// console.log("navigateToPage: ", e.detail.value);
 				if(e.detail.value) {
 					window.location = e.detail.value;
 				} 

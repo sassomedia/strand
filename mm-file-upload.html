@@ -96,32 +96,36 @@
 				</div>
 			</footer>			<article class="layout-article">
 				<div class="docs-content">
-					<h1>mm-menu</h1>
-					<p>A popover menu</p>
+					<h1>mm-file-upload</h1>
+					<p>A fully-styled file input field</p>
 					<hr/>
 					<section>
 						<h3>Example HTML Editor</h3>
 						<div class="editor-wrapper">
-							<div id="editor">&lt;mm-icon type=&quot;actions&quot; height=&quot;15&quot; width=&quot;15&quot; id=&quot;cpb2&quot;&gt;&lt;/mm-icon&gt;
-&lt;mm-menu id=&quot;testMenu&quot; direction=&quot;s&quot; offset=&quot;15&quot; target=&quot;#cpb2&quot;&gt;
-	&lt;mm-list-item value=&quot;m1&quot;&gt;menu item 1&lt;/mm-list-item&gt;
-	&lt;mm-list-item value=&quot;m2&quot;&gt;menu item 2&lt;/mm-list-item&gt;
-	&lt;mm-list-item value=&quot;m3&quot;&gt;menu item 3&lt;/mm-list-item&gt;
-	&lt;mm-list-item value=&quot;m4&quot;&gt;menu item 4&lt;/mm-list-item&gt;
-	&lt;mm-list-item value=&quot;m5&quot;&gt;menu item 5&lt;/mm-list-item&gt;
-&lt;/mm-menu&gt;</div>
+							<div id="editor">&lt;mm-file-upload accept=&quot;.js,.hs,.go&quot; drag-drop-enabled&gt;&lt;/mm-file-upload&gt;
+
+&lt;template is=&quot;dom-bind&quot;&gt;
+	&lt;mm-file-upload data-urls=&quot;{{dataurls}}&quot; multiple drag-drop-enabled use-data-urls&gt;&lt;/mm-file-upload&gt;
+	&lt;template is=&quot;dom-repeat&quot; items=&quot;{{dataurls}}&quot;&gt;
+		&lt;ul&gt;
+			&lt;li&gt;{{item}}&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/template&gt;
+&lt;/template&gt;</div>
 						</div>
 					</section>
 					<section>
 						<h3>Example Output</h3>
-						<div class="content-box example" id="example-mm-menu"><mm-icon type="actions" height="15" width="15" id="cpb2"></mm-icon>
-<mm-menu id="testMenu" direction="s" offset="15" target="#cpb2">
-	<mm-list-item value="m1">menu item 1</mm-list-item>
-	<mm-list-item value="m2">menu item 2</mm-list-item>
-	<mm-list-item value="m3">menu item 3</mm-list-item>
-	<mm-list-item value="m4">menu item 4</mm-list-item>
-	<mm-list-item value="m5">menu item 5</mm-list-item>
-</mm-menu></div>
+						<div class="content-box example" id="example-mm-file-upload"><mm-file-upload accept=".js,.hs,.go" drag-drop-enabled></mm-file-upload>
+
+<template is="dom-bind">
+	<mm-file-upload data-urls="{{dataurls}}" multiple drag-drop-enabled use-data-urls></mm-file-upload>
+	<template is="dom-repeat" items="{{dataurls}}">
+		<ul>
+			<li>{{item}}</li>
+		</ul>
+	</template>
+</template></div>
 					</section>
 
 					<section>
@@ -133,158 +137,127 @@
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">direction : </span><span class="italic">String&nbsp;&nbsp;</span><br/>
-									default : <span class="italic">s</span><br/>
-									options : <span class="italic"><span class="option">n</span><span class="option">e</span><span class="option">s</span><span class="option">w</span></span><br/>
-									attribute : <span class="italic">direction</span><br/>
-									reflected to attribute : <span class="italic">yes</span>
+									<span class="bold">accept : </span><span class="italic">String&nbsp;(optional)&nbsp;</span><br/>
+									options : <span class="italic"><span class="option">A file extension beginning with the &#39;.&#39; character (e.g. .jpg, .go)</span><span class="option">A MIME-type (e.g. text/css)</span><span class="option">A MIME-type with a wildcard selector (e.g. audio/*)</span></span><br/>
+									attribute : <span class="italic">accept</span><br/>
+									reflected to attribute : <span class="italic">no</span>
 								</td>
 								<td>
-									<span class="desc">The position of the popover panel relative to its target, expressed as a cardinal direction. If the panel is positioned outside the viewport because of this property, the element will attempt to reverse the direction.</span>
+									<span class="desc">The types of files that this field will accept. Multiple acceptable types can be provided as a comma-delimited list. If this attribute does not exist/is falsy, the field will accept all files.</span>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">target : </span><span class="italic">Object or String&nbsp;&nbsp;</span><br/>
-									default : <span class="italic">none</span><br/>
+									<span class="bold">useDataUrls : </span><span class="italic">Boolean&nbsp;(optional)&nbsp;</span><br/>
+									default : <span class="italic">false</span><br/>
 									options : <span class="italic">none</span><br/>
-									attribute : <span class="italic">target</span><br/>
+									attribute : <span class="italic">useDataUrls</span><br/>
 									reflected to attribute : <span class="italic">no</span>
 								</td>
 								<td>
-									<span class="desc">An HTMLElement that toggles the element&#39;s visual state when clicked. A valid selector may be passed to this attribute as a String.</span>
+									<span class="desc">If this flag is set, the component will encode uploaded files into a base64 data: url, stored in the dataUrls property.</span>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">panelOffset : </span><span class="italic">Number&nbsp;(optional)&nbsp;</span><br/>
-									default : <span class="italic">0</span><br/>
+									<span class="bold">dataUrls : </span><span class="italic">Array&lt;String&gt;&nbsp;&nbsp;(read-only)</span><br/>
 									options : <span class="italic">none</span><br/>
-									attribute : <span class="italic">panel-offset</span><br/>
+									attribute : <span class="italic">dataUrls</span><br/>
 									reflected to attribute : <span class="italic">no</span>
 								</td>
 								<td>
-									<span class="desc">The amount of space, in px, between the panel and associated target.</span>
+									<span class="desc">A read-only array of the files the user has input into this component encoded as base64 data: urls.</span>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">boundaryOffset : </span><span class="italic">Number&nbsp;(optional)&nbsp;</span><br/>
-									default : <span class="italic">10</span><br/>
+									<span class="bold">multiple : </span><span class="italic">Boolean&nbsp;&nbsp;</span><br/>
 									options : <span class="italic">none</span><br/>
-									attribute : <span class="italic">boundary-offset</span><br/>
+									attribute : <span class="italic">multiple</span><br/>
 									reflected to attribute : <span class="italic">no</span>
 								</td>
 								<td>
-									<span class="desc">The minimum about of space between the panel and the viewport boundary.</span>
+									<span class="desc">Allow the user to input multiple files into this component</span>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">metrics : </span><span class="italic">Object&nbsp;&nbsp;(read-only)</span><br/>
-									default : <span class="italic">none</span><br/>
+									<span class="bold">dragDropEnabled : </span><span class="italic">Boolean&nbsp;&nbsp;</span><br/>
 									options : <span class="italic">none</span><br/>
-									attribute : <span class="italic">N/A</span><br/>
+									attribute : <span class="italic">dragDropEnabled</span><br/>
 									reflected to attribute : <span class="italic">no</span>
 								</td>
 								<td>
-									<span class="desc">Returns a object containing the metrics of the positionable panel.</span>
+									<span class="desc">Allow the user to drag and drop files from the desktop into this component in addition to using the native file picker.</span>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">targetMetrics : </span><span class="italic">Object&nbsp;&nbsp;(read-only)</span><br/>
-									default : <span class="italic">none</span><br/>
+									<span class="bold">disabled : </span><span class="italic">Boolean&nbsp;&nbsp;</span><br/>
 									options : <span class="italic">none</span><br/>
-									attribute : <span class="italic">N/A</span><br/>
+									attribute : <span class="italic">disabled</span><br/>
 									reflected to attribute : <span class="italic">no</span>
 								</td>
 								<td>
-									<span class="desc">Returns a object containing the metrics of the target element.</span>
+									<span class="desc">Whether or not this component is in the disabled state, which fades the element and prevents it from taking input.</span>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">windowMetrics : </span><span class="italic">Object&nbsp;&nbsp;(read-only)</span><br/>
-									default : <span class="italic">none</span><br/>
+									<span class="bold">error : </span><span class="italic">Boolean&nbsp;&nbsp;</span><br/>
+									default : <span class="italic">false</span><br/>
 									options : <span class="italic">none</span><br/>
-									attribute : <span class="italic">N/A</span><br/>
+									attribute : <span class="italic">error</span><br/>
 									reflected to attribute : <span class="italic">no</span>
 								</td>
 								<td>
-									<span class="desc">Returns a object containing the metrics of the window.</span>
+									<span class="desc">Indicates that there was an error with the last input. This property is set to true if the user attempts to input a file that does not pass the validation specified in the `accept` attribute.</span>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">depth : </span><span class="italic">Number&nbsp;&nbsp;(read-only)</span><br/>
-									default : <span class="italic">0</span><br/>
+									<span class="bold">files : </span><span class="italic">Array&lt;File&gt;&nbsp;&nbsp;</span><br/>
 									options : <span class="italic">none</span><br/>
-									attribute : <span class="italic">N/A</span><br/>
+									attribute : <span class="italic">files</span><br/>
 									reflected to attribute : <span class="italic">no</span>
 								</td>
 								<td>
-									<span class="desc">Returns the z-index depth of the element.</span>
+									<span class="desc">The files that the user has input into this component, represented as an Array of File objects (an not a FileList)</span>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">stackType : </span><span class="italic">String&nbsp;&nbsp;</span><br/>
-									default : <span class="italic">ui</span><br/>
-									options : <span class="italic"><span class="option">ui</span><span class="option">modal</span><span class="option">tooltip</span></span><br/>
-									attribute : <span class="italic">stack-type</span><br/>
-									reflected to attribute : <span class="italic">no</span>
-								</td>
-								<td>
-									<span class="desc">Sets or returns the stacking type for the element. Stacking types are &#39;ui&#39; which starts at an index of 10000, &#39;modal&#39; which starts at index 20000, and &#39;tooltip&#39; which starts at index 30000.</span>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">state : </span><span class="italic">String&nbsp;&nbsp;</span><br/>
-									default : <span class="italic">closed</span><br/>
-									options : <span class="italic"><span class="option">opened</span><span class="option">closed</span></span><br/>
-									attribute : <span class="italic">state</span><br/>
-									reflected to attribute : <span class="italic">no</span>
-								</td>
-								<td>
-									<span class="desc">Sets the visual state of the element.</span>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">isClosed : </span><span class="italic">Boolean&nbsp;&nbsp;</span><br/>
-									default : <span class="italic">true</span><br/>
+									<span class="bold">fileNames : </span><span class="italic">Array&lt;String&gt;&nbsp;&nbsp;(read-only)</span><br/>
 									options : <span class="italic">none</span><br/>
-									attribute : <span class="italic">N/A</span><br/>
+									attribute : <span class="italic">fileNames</span><br/>
 									reflected to attribute : <span class="italic">no</span>
 								</td>
 								<td>
-									<span class="desc">Returns a boolean corresponding to the visual state of the element.</span>
+									<span class="desc">An array of the file names of the files the user has input into the component.</span>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">STATE_CLOSED : </span><span class="italic">String&nbsp;&nbsp;(read-only)</span><br/>
-									default : <span class="italic">opened</span><br/>
+									<span class="bold">placeholder : </span><span class="italic">String&nbsp;&nbsp;</span><br/>
+									default : <span class="italic">No file chosen</span><br/>
 									options : <span class="italic">none</span><br/>
-									attribute : <span class="italic">N/A</span><br/>
+									attribute : <span class="italic">placeholder</span><br/>
 									reflected to attribute : <span class="italic">no</span>
 								</td>
 								<td>
-									<span class="desc">The value of the state property when the element is closed</span>
+									<span class="desc">The placeholder text to display when no files have been input into the component.</span>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">STATE_OPENED : </span><span class="italic">String&nbsp;&nbsp;(read-only)</span><br/>
-									default : <span class="italic">opened</span><br/>
+									<span class="bold">browseLabel : </span><span class="italic">String&nbsp;&nbsp;</span><br/>
+									default : <span class="italic">Browse</span><br/>
 									options : <span class="italic">none</span><br/>
-									attribute : <span class="italic">N/A</span><br/>
+									attribute : <span class="italic">browseLabel</span><br/>
 									reflected to attribute : <span class="italic">no</span>
 								</td>
 								<td>
-									<span class="desc">The value of the state property when the element is opened</span>
+									<span class="desc">The text label for the button that opens the native file picker.</span>
 								</td>
 							</tr>
 						</table>
@@ -298,95 +271,11 @@
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">resize</span>(<span></span>)<br/>
-									<span class="desc">Called when the widow resizes, triggering the a display update (see: update).</span>
+									<span class="bold">clear</span>(<span></span>)<br/>
+									<span class="desc">Reset this component to its empty state.</span>
 								</td>
 								<td>
 									none
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">scroll</span>(<span></span>)<br/>
-									<span class="desc">Called when the widow scrolls, triggering the a display update (see: update).</span>
-								</td>
-								<td>
-									none
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">update</span>(<span></span>)<br/>
-									<span class="desc">Triggers a display update.</span>
-								</td>
-								<td>
-									none
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">styleBlock</span>(<span></span>)<br/>
-									<span class="desc">Returns an array of styles to be used in attribute binding.</span>
-								</td>
-								<td>
-									none
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">classBlock</span>(<span></span>)<br/>
-									<span class="desc">Returns an array of classes to be used in attribute binding.</span>
-								</td>
-								<td>
-									none
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">moveToTop</span>(<span></span>)<br/>
-									<span class="desc">Instructs the element to move to the top index of it&#39;s stacking type.</span>
-								</td>
-								<td>
-									none
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">open</span>(<span><span class="italic option">silent</span></span>)<br/>
-									<span class="desc">Instructs the component to open.</span>
-								</td>
-								<td>
-									<span class="arg">
-										<span class="bold">silent : </span><span class="italic">String&nbsp;(optional)</span><br/>
-										default : <span class="italic">false</span><br/>
-										<span class="desc">Used to allow or suppress the firing of an &#39;open&#39; event (see &#39;events&#39; for more information).</span>
-									</span>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">close</span>(<span><span class="italic option">silent</span></span>)<br/>
-									<span class="desc">Instructs the component to close.</span>
-								</td>
-								<td>
-									<span class="arg">
-										<span class="bold">silent : </span><span class="italic">String&nbsp;(optional)</span><br/>
-										default : <span class="italic">false</span><br/>
-										<span class="desc">Used to allow or suppress the firing of a &#39;close&#39; event (see &#39;events&#39; for more information).</span>
-									</span>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">toggle</span>(<span><span class="italic option">silent</span></span>)<br/>
-									<span class="desc">Toggles the visual state of the component between &#39;opened&#39; and &#39;closed&#39;.</span>
-								</td>
-								<td>
-									<span class="arg">
-										<span class="bold">silent : </span><span class="italic">String&nbsp;(optional)</span><br/>
-										default : <span class="italic">false</span><br/>
-										<span class="desc">Used to allow or suppress the firing of an &#39;open&#39; or &#39;close&#39; event, depending on the component&#39;s current state (see &#39;events&#39; for more information).</span>
-									</span>
 								</td>
 							</tr>
 						</table>
@@ -401,16 +290,7 @@
 							</tr>
 							<tr>
 								<td>
-									<span class="bold">Type</span> : 'open'</span>
-									
-								</td>
-								<td>
-									none
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span class="bold">Type</span> : 'close'</span>
+									<span class="bold">Type</span> : 'files-changed'</span>
 									
 								</td>
 								<td>
@@ -424,7 +304,7 @@
 			</article>
 		</mm-docs-shell>
 		<script>
-			var name = "mm-menu",
+			var name = "mm-file-upload",
 				articlesNav,
 				componentsNav,
 				docsShell,
