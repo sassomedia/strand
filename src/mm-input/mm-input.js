@@ -12,7 +12,7 @@
 		behaviors: [
 			StrandTraits.Resolvable,
 			StrandTraits.Stylable,
-			StrandTraits.Validatable
+			StrandTraits.Formable
 		],
 
 		properties: {
