@@ -28,8 +28,8 @@
 			},
 			value: { 
 				type: String,
-				value: false,
 				reflectToAttribute: true,
+				notify: true,
 				observer: '_valueChanged'
 			},
 			// TODO: multiselectable
